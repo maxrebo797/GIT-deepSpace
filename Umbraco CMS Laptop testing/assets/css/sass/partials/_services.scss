@@ -1,0 +1,114 @@
+/** @package bcna-frontend 
+ *	Services section
+ */
+ 
+main.services.landing {	
+	div.header {
+		height: 375px;
+		
+		@include mq-notphone {
+			div.title {
+				margin-top: -55px;
+			}
+		}
+	}
+}
+
+main.services.detail {
+	div.gallery {
+		margin-left: 0;
+		width: auto;
+	}
+	
+	table.service-details {
+		@include mq-large {
+			margin-left: -$article-gutter;
+			width: 129%;
+		}
+	}
+}
+
+main.services.form {
+	@include mq-notphone {
+		li.suburb,
+		li.email,
+		li.phone {
+			@include mq-notphone {
+				@include grid-column(1/2);
+			}
+			
+			@include mq-phone {
+				@include grid-column(1/1);
+			}
+		}
+		
+		li.state,
+		li.postcode {
+			@include mq-notphone {
+				@include grid-column(1/4);
+			}
+			
+			@include mq-phone {
+				@include grid-column(1/2);
+			}
+		}
+	}
+}
+
+div.search.services {
+	ul.search {
+		@include grid-outer;
+		
+		@include mq-notlarge {
+			li {
+				@include grid-column(1/2);
+			}
+		}
+		
+		@include mq-phone {
+			li {
+				@include grid-column(1/1);
+			}
+		}
+		
+		@include mq-large {
+			li {
+				@include grid-column(1/6);
+			}
+			
+			li:first-child {
+				@include grid-column(2/6);
+			}
+		}
+	}
+}
+
+table.service-details {
+	margin-top: 0;
+	
+	th, td {
+		border: 0;
+		border-bottom: 1px solid $border;
+	}
+	
+	th {
+		min-width: 180px;
+        width: 30%;
+	}
+
+    td {
+        width: 70%;
+    }
+	
+	ul {
+		@include reset-list;
+		
+		li:before {
+			display: none;
+		}
+	}
+	
+	a {
+		color: $pink;
+	}
+}

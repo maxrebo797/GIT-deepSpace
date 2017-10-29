@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+    <script type="text/javascript" src="//www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?libraries=geometry,places&amp;sensor=false"></script>
+    <script src="/assets/js/vendor/angular.js"></script>
+    <script src="/assets/js/vendor/angular-messages.js"></script>
+    <script src="/assets/js/vendor/angular-sanitize.min.js"></script>
+    <script src="/assets/js/vendor/angular-animate.min.js"></script>
+    <script src="/assets/js/vendor/select.js"></script>
+    <script src="/assets/js/vendor/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/vendor/model.js"></script>
+    <script src="/assets/js/libs.min.js"></script>
+    <script src="/assets/js/site.min.js"></script>
+</head>
+<body ng-controller="FileUploadDialogCtrl">
+    <div class="preview">
+        <img ng-src="{{image.Url}}" ng-show="image" style="max-height:150px" />
+    </div>
+    <media-selector ng-model="image" is-uploading="$uploading"></media-selector>
+
+    <button ng-click="select()">Insert</button>
+
+    <script>
+        (function () {
+            window.app.controller('FileUploadDialogCtrl', ['$scope', function ($scope) {
+                $scope.select = function () {
+                    var params = parent.tinymce.activeEditor.windowManager.getParams();
+                    if (params.window) {
+                        var input = params.window.document.getElementById(params.input);
+
+                        console.log($scope.image);
+
+                        input.value = $scope.image.Url;
+
+                        parent.tinymce.activeEditor.windowManager.close();
+                    }
+                    else {
+                        var editor = params.editor;
+
+                        editor.focus();
+                        editor.insertContent('<img src="' + $scope.image.Url + '" />');
+
+                        editor.windowManager.close();
+                    }
+                };
+            }]);
+        })();
+    </script>
+</body>
+</html>

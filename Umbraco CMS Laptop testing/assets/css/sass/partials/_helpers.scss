@@ -1,0 +1,53 @@
+/** @package bcna-frontend 
+ *	Misc helpers, polyfills, etc
+ */
+
+@mixin clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+} 
+%clearfix {
+	@include clearfix;
+}
+
+@mixin opacity($opacity) {
+	filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+	opacity: $opacity;
+}
+
+@mixin box-sizing($bs) {
+	$bs: unquote($bs);
+	box-sizing: $bs;
+}
+
+@mixin transition($property, $duration:$default-transition-duration, $ease:ease-out){
+	-webkit-transition: $property $duration $ease;
+	        transition: $property $duration $ease;
+}
+
+@mixin transitions($properties, $durations:false){ 
+	$transition: '';
+	@for $i from 1 through length($properties) {
+		$property: nth($properties, $i);
+		@if($durations and nth($durations, $i)) {
+			$duration: nth($durations, $i);
+		}
+		@else {
+			$duration: $default-transition-duration;
+		}
+		@if($i < length($properties)) {
+			$suffix: ', ';
+		}
+		@else {
+			$suffix: '';
+		}
+		
+		$transition: $transition + $property + ' ' + $duration + $suffix;
+		
+	}
+	-webkit-transition: unquote($transition);
+	        transition: unquote($transition);
+}

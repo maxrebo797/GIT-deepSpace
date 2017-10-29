@@ -1,0 +1,50 @@
+/** @package bcna-frontend 
+ *	News section feature article module
+ */
+
+div.feature-article {
+	@include mq-notphone {
+		@include grid-outer(0);
+		margin-bottom: $module-spacing;
+	}
+	
+	div.image {
+		@include mq-notphone {
+			@include grid-column(1/2);
+		}
+		
+		@include mq-phone {
+			margin-bottom: $grid-spacing;
+		}
+	}
+	
+	div.details {
+		@include mq-notphone {
+			@include grid-column(1/2);
+			padding-left: 2px;
+		}
+	}
+	
+	p.subtitle {
+		@include heading-mini;
+		@include margins(0, false, 0, false);
+		
+		span.date {
+			float: right;
+		}
+	}
+	
+	h2 {
+		@include heading-medium;
+		@include font-size(35px);
+		@include margins(0, false, 10px, false);
+		
+		a {
+			text-decoration: none;
+			
+			&:hover, &:focus {
+				color: $pink;
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+﻿// angular.module('umbraco').controller('TestCtrl', function () { alert('hi'); });

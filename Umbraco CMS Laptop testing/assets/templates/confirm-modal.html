@@ -1,0 +1,17 @@
+<span class="modal__close-button" ng-click="$dismiss()"></span>
+<div class="modal__content modal__content--confirm">
+    <div class="modal__content-header">
+        <h1 ng-bind="title"></h1>
+    </div>
+    <div class="modal__content-body">
+        <div>
+            <p ng-bind="prompt"></p>
+        </div>
+        <div class="modal__buttons">
+            <div class="modal__buttons--centre">
+                <button type="button" class="cancel" ng-click="$dismiss()">Cancel</button>
+                <button type="button" class="ok" ng-bind="buttonText" ng-click="$close(true)"></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app_code",
+    "\\App_Data\\Models",
+    "\\css",
+    "\\models",
+    "\\Views",
+    "\\Views\\Partials"
+  ],
+  "SelectedNode": "\\Views\\Partials\\mainNavigation.cshtml",
+  "PreviewInSolutionExplorer": true
+}

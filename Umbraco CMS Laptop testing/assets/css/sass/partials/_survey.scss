@@ -1,0 +1,16 @@
+﻿/*#contour label.fieldLabel, .contour label.fieldLabel {
+    @include heading-large;
+    @include margins(20px, false, 5px);
+    padding: 0;
+}*/
+#contour fieldset, .contour fieldset {
+	padding: 0;
+	margin: 0;
+	border: none !important;
+}
+.contourNavigation {
+    input[type=submit] {
+        @include button-small($white, $pink, $pink-on);
+    }
+    
+}

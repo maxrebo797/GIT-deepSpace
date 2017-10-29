@@ -1,0 +1,34 @@
+/** @package bcna-frontend 
+ *	Order this resource module
+ */
+
+div.order-link {
+	@include module-spacing;
+	
+	h2 {
+		@include module-heading;
+	}
+		
+	a {
+		@include button-small($white, $pink, $pink-on, arrow-r);
+		margin-right: $grid-spacing;
+		width: 80%;
+		min-width: 140px;
+        display: block;
+        margin-bottom: 10px;
+	}
+
+    div.ctas {
+        @include font(16px, false, $title-font);
+		color: $copy-med;
+		padding: $grid-spacing;
+		margin: 0;
+		border: 1px solid $border;
+        @extend %clearfix;
+
+        div {
+            float: left;
+            width: 50%;
+        }
+    }
+}

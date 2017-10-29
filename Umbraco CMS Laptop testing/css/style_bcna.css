@@ -1,0 +1,260 @@
+div.frhub-content .items {
+	max-width: 1024px !important;
+    margin: 0 auto !important;
+}
+
+
+
+/* this is possible not needed  */
+
+main > div.frhub {
+    position: relative;
+    min-height: 500px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+
+
+/* this is the fundraising hub navigation css */
+
+
+#getinv-menu ul:before, #getinv-menu li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: none;
+    margin-top: 9px;
+    margin-left: -26px;
+}
+
+
+#getinv-menu a:hover, #getinv-menu a:focus {
+    text-decoration: none;
+}
+
+#getinv-menu ul li:hover, #getinv-menu ul li:focus {
+	background-color:pink;
+}
+#getinv-menu ul li:active {
+	background-color:pink;
+}
+
+#getinv-menu {
+    width: 100%;
+}
+
+#getinv-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: #e64097;
+    border-top: 5px solid #c73180;
+    text-align: center;
+}
+
+    #getinv-menu ul li {
+        margin: 0;
+        padding: 0 30px;
+        list-style-type: none;
+        display: inline-block;
+        line-height: 35px;
+        color: #FFF;
+        font-size: 14px;
+        text-align: center;
+    }
+
+
+
+
+/* this is the fundraising hub main page css */
+
+
+
+div.item-list.frhub .content {
+	text-align:center; 
+	    padding: 0 5%;}
+
+div.item-list.frhub h3 a {
+	  color: inherit;
+  text-decoration: none; }
+
+div.item-list.frhub h3 a:hover {
+    color: #e64097; }
+	
+div.item-list.frhub h3 a:hover:after {
+      color: inherit; }
+div.item-list.frhub p.tag {
+	  font-size: 12px;
+  font-size: 0.70588rem;
+  line-height: 1;
+  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  font-weight: 300;
+  width: 45px;
+  height: 45px;
+  padding-top: 7px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e64097;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0; }
+div.item-list.frhub p.tag strong {
+    font-size: 18px;
+    font-size: 1.05882rem;
+    font-weight: 500;
+    display: block; }
+div.item-list.frhub p.tag sup {
+    font-size: 10px;
+    font-size: 0.58824rem;
+    font-weight: 300;
+    text-transform: none;
+    vertical-align: top; }
+	
+div.item-list.frhub {
+  margin-top: 50px;
+  margin-bottom: 50px; }
+  @media only screen and (max-width: 599px) {
+    div.item-list.frhub {
+      margin-top: 30px;
+      margin-bottom: 30px; } 
+	div.buttonText {margin-top: -60px; }}
+	  
+  div.item-list.frhub ul {
+    margin-left: 20px; }
+    div.item-list.frhub ul:after {
+      content: '';
+      display: table;
+      clear: both; }
+    div.item-list.frhub ul li {
+      width: 30%;    /*   changed   */
+	  margin-left: 25px;
+		margin-bottom: 25px;
+      float: left;
+      border-style: solid;
+      border-color: transparent;
+   /*   border-left-width: 20px;  removed  */
+      position: relative;
+      padding-bottom: 0;
+	  background-color:#f1f1e7; 
+}
+      @media only screen and (min-width: 500px) and (max-width: 799px) {
+        div.item-list.frhub ul li {
+          width: 44%; /*changed*/
+          float: left;
+          border-style: solid;
+          border-color: transparent;
+           /*   border-left-width: 20px; removed  */   
+		   margin-bottom: 45px;    /*added */      } }
+      @media only screen and (max-width: 499px) {
+        div.item-list.frhub ul li {
+          width: 100%;
+          float: left;
+          border-style: solid;
+          border-color: transparent;
+           /*   border-left-width: 20px; removed  */ 
+		   margin-bottom: 45px;    /*added */   
+		    margin-left: 0;}
+          	div.item-list.frhub ul li:last-child {
+            	padding-bottom: 0; }
+	  div.item-list.frhub ul {
+    margin-left: 0;}}
+ 
+
+        @media only screen and (max-width: 599px) {
+         article div.item-list.frhub ul li {
+            margin-bottom: 20px; } 
+		div.buttonText {margin-top: -60px; }}
+
+
+
+       aside div.item-list.frhub ul li {
+        width: 100%;
+        float: left;
+        border-style: solid;
+        border-color: transparent;
+         /*   border-left-width: 20px; removed  */
+        margin-bottom: 10px; }
+  div.item-list.frhub div.details {
+		       padding-top: 12%; /*changed */    }
+  div.item-list.frhub h3 {
+	      font-size: 22px;
+    font-size: 1.29412rem;
+    line-height: 1.3;
+    font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 8px;
+    margin-bottom: 0.47059rem;
+    margin-left: 0;
+    margin-right: 0;
+    color: #e64097; }
+  div.item-list.frhub p.subtitle, {
+	      font-size: 12px;
+    font-size: 0.70588rem;
+    font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 8px;
+    margin-bottom: 0.47059rem;
+    margin-left: 0;
+    margin-right: 0; }
+    aside div.item-list.frhub p.subtitle {
+      margin-top: 0;
+      margin-bottom: 5px;
+      margin-bottom: 0.29412rem;
+      margin-left: 0;
+      margin-right: 0; }
+    div.item-list.frhub p.subtitle span.date {
+      float: right; }
+  div.item-list.frhub p.description {
+	      margin-top: 12px; }
+div.item-list.frhub img {
+    width: 100%;
+    margin: 0;
+    max-height: 260px;
+
+ background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 260px;}
+div.item-list.frhub .image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 260px; }
+div.item-list.frhub div.actions {
+	  bottom: -20px; }
+
+	
+		   
+/*   frhub button css */
+
+div.buttonText {
+    width: 100%;
+    background-color: #e64097;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 35px;
+    margin-top: -15%;
+}
+
+div.buttonText p {
+	text-align:center;
+	color:#FFF;
+	padding-top: 5px;
+	text-transform: uppercase;
+}
+div.buttonText a {
+	color:#FFF;
+
+}

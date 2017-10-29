@@ -1,0 +1,48 @@
+/** @package bcna-frontend 
+ *	List / map view search results toggle
+ */
+
+div.results-view {
+	@include font(16px, false, $base-font, $weight-med);
+	float: right;
+	color: $copy-med;
+	margin-top: 16px;
+	
+	@include mq-phone {
+		display: none;
+	}
+	
+	ul {
+		@include reset-list;
+	}
+	
+	li {
+		float: left;
+	}
+	
+	a {
+		@extend %text-link;
+		text-decoration: none;
+		margin-left: 12px;
+		
+		&:after {
+			float: right;
+			position: relative;
+			top: 6px;
+			margin-left: 6px;
+			color: #cfc9c9;
+		}
+	}
+	
+	a.list:after {
+		@include icon(grid, 16px);
+	}
+	
+	a.map:after {
+		@include icon(location, 16px);
+	}
+	
+	a.active:after {
+		color: $pink;
+	}
+}

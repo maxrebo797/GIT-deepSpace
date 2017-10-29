@@ -1,0 +1,40 @@
+/** @package bcna-frontend 
+ *	Support group pages
+ */
+ 
+div.supportgroup {
+	background: $grey-light;
+	padding: {
+		top: 50px;
+		bottom: 50px;
+	}
+
+	div.wrap {
+		@extend %wrap-inner;
+		@extend %clearfix;
+	}
+	
+	div.inner {
+		@include mq-notphone {
+			@include grid-outer();
+		}
+	}
+	
+	ul.breadcrumb {
+		border-left: 0;
+	}
+	
+	img.supportgroup {
+		float: left;
+		width: 160px;
+		margin: 0 0 20px 0;
+		
+		@include mq-phone {
+			display: none;
+		}
+	}
+	
+	h1 {
+		clear: left;
+	}
+}

@@ -1,0 +1,32 @@
+﻿<div class="bcna-modal message" ng-controller="MessagingCtrl">
+    <div ng-show="!messageSent">
+        <form ng-submit="sendToGroup(data, body)" role="form" name="form" novalidate>
+            <h1>Broadcast to Group</h1>
+            <ul class="form">
+                <li class="message required">
+                    <label for="body"><strong>Message:</strong></label>
+                    <textarea name="body" id="body" rows="10" ng-model="body" required></textarea>
+                    <div ng-messages="form.body.$error" ng-show="!form.body.$valid && submitted" class="validation">
+                        <div ng-message="required">Required</div>
+                    </div>
+                </li>
+                <li class="submit">
+                    <button class="submit" type="submit" ng-disabled="$loading">Send</button>
+                </li>
+                <li class="status" ng-show="messageSent">
+                    <label>Message sent.</label>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div ng-show="messageSent">
+        <h1>Thanks</h1>
+        <div>Your message has been delivered.</div>
+
+        <ul class="form">
+            <li class="submit">
+                <button class="submit" type="button" ng-click="closeEditor()">Close</button>
+            </li>
+        </ul>
+    </div>
+</div>

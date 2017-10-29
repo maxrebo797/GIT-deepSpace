@@ -1,0 +1,120 @@
+.print-only-logo {
+    display: none;
+}
+
+@media print {
+    header,
+    footer,
+    .breadcrumb,
+    aside,
+    ul.social,
+    nav.section,
+    div.network-nav,
+    .actions-container,
+    button,
+    .hide-on-print
+    {
+        display: none !important;
+    }
+
+
+    div.article.post {
+        div.details.below {
+            display: none;
+        }
+    }
+
+    main {
+        padding: 0px;
+        margin: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        .header {
+            background: #DDD;
+            .rte p {
+                border-bottom: 1px solid #DDD;
+                padding-bottom: 30px;
+            }
+        }
+        div.before {
+            min-height: 0px;
+        }  
+
+        div.content {
+            padding-top: 0px;
+        }
+
+        div.header div.cell {
+
+        }      
+    }
+
+    article {
+        width: auto;
+        float: none;
+    }
+
+    div.header,
+    main.events div.header {
+        height: auto;
+        padding: 25px 0px 15px 0px;
+        background: none;
+        div.title {
+            padding: 0px;
+            border-left: none;
+            margin-top: 0px;
+        }
+    }
+
+    main.events div.header {
+        div.title {
+            display: none;
+        }
+     }
+
+    
+    p {
+        @include font-size(15px);
+    }
+
+
+
+
+
+    // block quotes to be styled again because absolute positioning messes up print styles
+    blockquote {
+        &:before {
+            display: inline-block;
+            position: static;
+        }
+        p {
+            vertical-align: top;
+            display: inline-block;
+            width: 70%;
+            margin-left: 30px;
+        }
+    }
+
+    ul > li {
+        @include font-size(15px);
+        &:before {
+            background: none;
+            content: "\2022";
+            margin-top: 0;
+            color: $pink;
+            float: left;
+            position: static;
+            margin-right: 10px;
+        }
+    }    
+
+    .print-only-logo {
+        display: block;
+        padding: 14px;
+        border-bottom: 5px solid $blue;
+        img {
+            width: 100px;
+            height: auto;
+        }
+    }
+}

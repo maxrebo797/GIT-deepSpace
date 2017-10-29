@@ -1,0 +1,38 @@
+/** @package bcna-frontend 
+ *	Sidebar simple feedback form module
+ */
+
+div.feedback {
+	@include module-spacing;
+	color: $copy-med;
+	
+	label.fieldLabel {
+		@include module-heading($copy-dark, $grey-light);
+        display: block;
+	}
+	
+	ul.checkboxes {
+		label {
+			@include font(16px, false, $title-font);
+		}
+	}
+	
+	p.response {
+		display: block;
+		position: relative;
+		padding: 12px;
+		border: 1px solid $border;
+		border-top: 0;
+	}
+	
+	
+	
+	div.checkbox {
+		top: 14px;
+		left: 12px;
+	}
+	
+	p.response {
+		display: none;
+	}
+}

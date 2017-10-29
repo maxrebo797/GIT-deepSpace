@@ -1,0 +1,42 @@
+/** @package bcna-frontend 
+ *	Search results module
+ */
+
+div.search-results {
+	@include module-spacing;
+	
+	ul li {
+		padding: 1.5em 0;
+		border-bottom: 1px solid $border;
+		
+		&:first-child {
+			border-top: 1px solid $border;
+		}
+
+        a {
+            color: inherit;
+        }
+	}
+	
+	h2 {
+		@include font($base-font-size, false, $base-font, $weight-bold);
+		@include margins(0, 30px, 0, 0);
+		color: $copy-dark;
+		display: inline-block;
+		
+		&:after {
+			display: none;
+		}
+	}
+	
+	p.category {
+		@include heading-mini;
+		margin: 0;
+		display: inline-block;
+		font-weight: $weight-light;
+	}
+	
+	p.excerpt {
+		margin: 0;
+	}
+}

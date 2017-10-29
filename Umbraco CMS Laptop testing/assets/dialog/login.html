@@ -1,0 +1,38 @@
+﻿<div class="bcna-modal login">
+    <form ng-controller="AuthCtrl" ng-submit="login()" role="form" name="form" class="contour" novalidate>
+        <h1>Login</h1>
+        <p class="login">or <a href="/join">Join</a></p>
+        <div class="contourPage">
+            <fieldset class="countourFieldSet">
+                <div class="row-fluid">
+                    <div class="contourField span12 col-md-12">
+                        <div class="username required">
+                            <label for="username"><strong>Username:</strong></label>
+                            <input class="text" id="username" name="username" ng-model="username" type="text" required autofocus />
+                            <div ng-messages="form.username.$error" ng-show="!form.username.$valid && submitted" class="validation">
+                                <span class="field-validation-error" ng-message="required">Required</span>
+                            </div>
+                        </div>
+                        <div class="contourField password required">
+                            <label for="password"><strong>Password:</strong></label>
+                            <input class="text" id="password" name="password" ng-model="password" type="password" required />
+                            <div ng-messages="form.password.$error" ng-show="!form.password.$valid && submitted" class="validation">
+                                <span class="field-validation-error" ng-message="required">Required</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p ng-show="error" ng-bind-html="error"></p>
+                            <p ng-show="isUnverified">Your account has not been verified. Click <a ng-click="verify()">here</a> to send a new verification email.</p>
+                        </div>
+                        <div class="contourField submit" ng-hide="isUnverified">
+                            <button class="submit" ng-disabled="$loading">Login</button>
+                        </div>
+                        <div class="contourField forgot" ng-hide="isUnverified">
+                            <a href="/password-reset">Forgot my password</a>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

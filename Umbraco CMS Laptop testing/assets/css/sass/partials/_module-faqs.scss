@@ -1,0 +1,57 @@
+/** @package bcna-frontend 
+ *	FAQs module
+ */
+
+div.faqs {
+	
+	ul {
+		margin-top: 30px;
+	}
+	
+	li {
+		position: relative;
+		border-bottom: 1px solid $border;
+		
+		&:first-child {
+			border-top: 1px solid $border;
+		}
+		
+		&:after {
+			@include icon(arrow-d, 10px);
+			position: absolute;
+			top: 28px;
+			right: 20px;
+			color: $pink;
+		}
+		
+		&.active:after {
+			@include icon(arrow-u, false, false);
+		}
+	}
+	
+	p.question {
+		@include font(16px, false, $title-font, $weight-med);
+		margin: 0;
+		padding: 20px 40px 20px 0;
+		
+		&:hover {
+			color: $pink;
+			cursor: pointer;
+		}
+	}
+	
+	div.answer {
+		@include transition(height);
+		height: 0;
+		overflow: hidden;
+		
+		p {
+			margin-top: -5px;
+		}
+	}
+	
+	div.inner {
+		padding-bottom: 1px;
+	}
+
+}

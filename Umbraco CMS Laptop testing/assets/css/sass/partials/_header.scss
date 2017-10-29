@@ -1,0 +1,740 @@
+/** @package bcna-frontend
+ *	Page header styles
+ */
+
+#skiptocontent {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    top: -10px;
+}
+
+
+
+header {
+    height: $header;
+    position: relative;
+    z-index: 2;
+    border-top: 5px solid $grey-light;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+
+    @include mq-medium() {
+        height: $header-medium;
+    }
+
+    @include mq-small() {
+        height: $header-medium;
+    }
+
+    @include mq-phone() {
+        height: $header-small;
+    }
+
+    > div.wrap {
+        @extend %wrap-inner;
+        height: 100%;
+    }
+
+    div.logo {
+        display: block;
+        position: absolute;
+        bottom: 22px;
+        left: 15px;
+        width: 130px;
+        z-index: 10;
+
+        @include mq-notlarge() {
+            width: 95px;
+            left: $grid-spacing;
+        }
+
+        @include mq-phone {
+            width: 80px;
+            bottom: 22px;
+        }
+    }
+
+    ul {
+        @include reset-list;
+    }
+}
+
+header nav.navigation {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+
+    @include mq-notlarge() {
+        display: none;
+    }
+    // Top-level items
+    > ul {
+        @extend %clearfix;
+        padding: 15px 0;
+        border-top: 1px solid $border;
+        float: right;
+    }
+
+    > ul > li {
+        @include font(16px, 1.3, $title-font, $weight-med);
+        min-width: 140px;
+        float: left;
+        border-left: 1px solid $border;
+        padding: 0 14px;
+
+        &:first-child {
+            border-left: 0;
+            padding-left: 2px;
+        }
+        // Small down arrow arrow
+        &:after {
+            @include icon(arrow-d, 10px);
+            float: right;
+            position: relative;
+            top: -15px;
+            color: $blue;
+        }
+
+        > a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            padding-right: 22px;
+
+            @include arrow(bottom, center, 20px, $white, darken($border, 10%), 1px);
+
+            &:before, &:after {
+                z-index: 2;
+                margin-bottom: -22px;
+                display: none;
+            }
+        }
+    }
+
+    > ul > li.has-children {
+        &:hover, &:focus {
+            &:after,
+            > a {
+                color: $pink;
+            }
+            // Arrow
+            > a:before, > a:after {
+                display: block;
+            }
+
+            div.submenu {
+                left: 0;
+            }
+        }
+    }
+}
+
+// Dropdown menus
+header nav.navigation div.submenu {
+    position: absolute;
+    z-index: 1;
+    left: -9999em;
+    width: 100%;
+    min-height: 100%;
+    padding-top: 29px;
+
+    div.wrap {
+        @extend %clearfix;
+        position: relative;
+        background: $white;
+        padding: 25px 0;
+        border: 1px solid $border;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        // Top borders & hides top of box-shadow
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            margin-left: -1px;
+            top: -8px;
+            height: 1px;
+            border: 1px solid $border;
+            border-bottom-width: 5px;
+        }
+    }
+
+    ul {
+        float: left;
+        width: 25%;
+        border-left: 1px solid $border;
+        border-right: 1px solid $border;
+        margin-left: -1px;
+
+        &:first-child {
+            border-left: 0;
+            margin-left: 0;
+        }
+
+        &:last-of-type {
+            border-right: 0;
+        }
+    }
+
+    li {
+        @include font(18px, false, $base-font, $weight-light);
+        margin: 0 2px;
+    }
+
+    strong {
+        @include font(17px, false, $title-font, $weight-med);
+        display: block;
+        margin-top: 15px;
+    }
+
+    li:first-child strong {
+        margin-top: 0;
+    }
+
+    a {
+        display: block;
+        position: relative;
+        padding: 8px 40px 8px 25px;
+        color: $copy-dark;
+
+        &:hover, &:focus {
+            text-decoration: none;
+            background: $pink;
+            color: $white;
+
+            &:after {
+                @include icon(arrow-r, 10px);
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                margin-top: -5px;
+            }
+        }
+    }
+}
+
+header nav.quicklinks {
+    @include mq-notlarge {
+        width: 100%;
+    }
+
+    > ul {
+        @include mq-notlarge {
+            width: 100%;
+        }
+
+        > li {
+            // Donate, Shop, Network
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6) {
+                @include mq-notlarge {
+                    width: 33.333%;
+                }
+
+                > a {
+                    @include font(14px);
+                    white-space: nowrap;
+
+                    @include mq-phone {
+                        @include font(9px);
+                        padding-right: 22px !important;
+                    }
+
+                    &:after {
+                        //                        top: 23px;
+                        @include mq-phone {
+                            top: 13px !important;
+                        }
+                    }
+                }
+
+                > ul {
+                    a {
+                        color: $blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+header nav.quicklinks,
+header .user-mobile {
+    @include font(14px, false, $title-font);
+    position: absolute;
+    top: -5px;
+    right: 0;
+
+    > ul {
+        @include mq-phone() {
+            width: 100%;
+        }
+    }
+    // Shared styles
+    > ul > li {
+        float: left;
+        color: $copy-dark;
+        position: relative;
+        z-index: 10;
+
+
+        @include mq-large {
+            &:hover > ul {
+                left: auto;
+            }
+        }
+
+        &:hover > ul.active{
+            left: auto;
+        }
+
+        @include mq-phone() {
+            width: 50%;
+        }
+
+        > a {
+            display: block;
+            padding: 16px 20px 8px 16px;
+            text-decoration: none;
+
+            @include mq-phone() {
+                padding-top: 8px;
+                padding-left: 12px;
+            }
+        }
+    }
+    // Join / Login
+    li.logged-out {
+        a {
+            @extend %text-link;
+            float: left;
+
+            padding: {
+                left: 0;
+                right: 0;
+            }
+
+            &:nth-child(2):before {
+                content: '';
+                margin: 0 10px;
+                text-decoration: none;
+                display: inline-block;
+                border-left: 1px solid $copy-dark;
+                height: 14px;
+                position: relative;
+                top: 2px;
+            }
+        }
+    }
+    // Logged in
+    li.logged-in {
+        img {
+            float: left;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            position: relative;
+            top: -4px;
+            margin-right: 6px;
+        }
+
+        > a:after {
+            @include icon(arrow-d, 10px);
+            position: absolute;
+            top: 23px;
+            right: 0;
+            color: $copy-light;
+        }
+
+        > span {
+            max-width: 180px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+        }
+        // Arrow
+        ul:before {
+            left: 21px;
+        }
+
+        ul:after {
+            left: 22px;
+        }
+
+        &:hover {
+            > a, a:after {
+                color: $pink;
+            }
+        }
+    }
+    // About us, Get involved
+    > ul > li:nth-child(2),
+    > ul > li:nth-child(3) {
+        margin-left: 8px;
+
+        &:after {
+            @include icon(arrow-d, 10px);
+            position: absolute;
+            top: 23px;
+            right: 0;
+            color: $copy-light;
+        }
+
+        &:hover, &:focus {
+            &:after {
+                color: $pink;
+            }
+        }
+    }
+
+    > ul > li:nth-child(2) {
+        ul:before, ul:after {
+            right: auto;
+            left: 44px;
+        }
+
+        ul:after {
+            margin-left: 1px;
+        }
+    }
+
+    > ul > li:nth-child(3) {
+        @include mq-notphone() {
+            margin-right: 12px;
+        }
+
+        ul:before, ul:after {
+            right: auto;
+            left: 52px;
+        }
+
+        ul:after {
+            margin-left: 1px;
+        }
+    }
+
+    > ul > li:nth-child(4) {
+        ul:before, ul:after {
+            right: 82%;
+        }
+    }
+    // Shop, donate
+    > ul > li:nth-child(4),
+    > ul > li:nth-child(5),
+    > ul > li:nth-child(6) {
+        a {
+            padding-right: 32px;
+        }
+
+        a:after {
+            @include icon(arrow-r, 10px);
+            position: absolute;
+            top: 23px;
+            right: 10px;
+        }
+
+        &:hover, &:focus {
+            &:after {
+                color: $pink;
+            }
+        }
+    }
+
+    > ul > li:nth-child(4) {
+        background: $grey-light;
+
+        a:hover:after, a:focus:after {
+            color: $pink;
+        }
+    }
+
+    > ul > li:nth-child(5) {
+        background: $grey-dark;
+        font-weight: $weight-med;
+
+        a:hover:after, a:focus:after {
+            color: $pink;
+        }
+    }
+
+    > ul > li:nth-child(6) {
+        background: $blue;
+        font-weight: $weight-med;
+
+        a {
+            color: $white;
+        }
+
+        a:hover, a:focus {
+            background: $blue-on;
+        }
+    }
+    // Subnav
+    > ul > li > ul {
+        @include dropdown;
+    }
+
+    > ul > li {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            @include mq-notlarge {
+                display: none;
+            }
+        }
+    }
+}
+
+header nav.language {
+    p {
+        width: 330px;
+    }
+}
+
+nav.language {
+    @include font(14px, false, $title-font);
+    position: absolute;
+    top: 74px;
+    right: 420px;
+    padding-right: 18px;
+
+
+
+    &:after {
+        @include icon(arrow-d, 10px);
+        position: absolute;
+        top: 7px;
+        right: 0;
+        color: $copy-light;
+    }
+
+    &:hover {
+        &:after {
+            color: $pink;
+        }
+    }
+
+    p {
+        margin: 0 0 5px 0;
+        position: absolute;
+        right: 20px;
+        width: 200px;
+        text-align: right;
+        background-color: #fff;
+
+        &:after {
+            @include icon(language, 23px);
+            margin-left: 8px;
+            float: right;
+            color: #000;
+        }
+    }
+
+    &:hover ul {
+        left: -200px;
+        top: 20px;
+    }
+
+    ul {
+        @include dropdown;
+    }
+
+    .fade-on {
+        -webkit-transition: 1s;
+        transition: 1s;
+        opacity: 1;
+    }
+
+    .fade-off {
+        -webkit-transition: 1s;
+        transition: 1s;
+        opacity: 0;
+    }
+}
+
+header form.search {
+    position: absolute;
+    top: 64px;
+    right: 5px;
+    width: 160px;
+    height: 36px;
+    border-radius: 36px;
+    padding-right: 36px;
+    background: $grey-light;
+
+    @include mq-notlarge() {
+        display: none;
+    }
+
+    input.search {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 7px 0 0 0;
+        padding: 0 0 0 15px;
+        background: transparent;
+        border: 0;
+        outline: none;
+    }
+
+    button.submit {
+        display: block;
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        position: absolute;
+        top: 10px;
+        right: 13px;
+        color: $pink;
+
+        &:before {
+            @include icon(search, 16px);
+        }
+    }
+}
+
+header a.phone {
+    position: absolute;
+    top: 67px;
+    right: 205px;
+    color: $pink;
+    font-size: 21px;
+    text-decoration: none;
+
+    &:before {
+        @include icon(phone, 20px);
+        position: absolute;
+        left: -25px;
+        top: 7px;
+    }
+
+    &:hover {
+        color: $pink-on;
+        text-decoration: none;
+    }
+
+    @include mq-notlarge() {
+        top: 80px;
+        right: 117px;
+    }
+
+    @include mq-phone() {
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        right: 78px;
+        top: 50%;
+        margin-top: -36px;
+        padding-left: 30px;
+
+        &:before {
+            font-size: 32px;
+            width: 32px;
+            height: 32px;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+header .user-mobile {
+    display: none;
+    top: 48px;
+    right: 130px;
+    left: auto;
+
+    @include mq-notlarge {
+        display: inline-block;
+    }
+
+    @include mq-notphone {
+        right: 290px;
+        top: 68px;
+    }
+
+    > ul > li {
+        &.logged-in {
+            width: auto;
+            display: block;
+
+            img {
+                float: left;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                position: relative;
+                top: -4px;
+                margin-right: 6px;
+            }
+
+            > a:after {
+                @include icon(arrow-d, 10px);
+                position: absolute;
+                top: 16px;
+                right: 0;
+                color: $copy-light;
+
+                @include mq-notphone {
+                    top: 24px;
+                }
+            }
+
+            ul:before {
+                left: 21px;
+            }
+
+            ul:after {
+                left: 22px;
+            }
+
+            .no-touch &:hover,
+            .tapped {
+                > a, a:after {
+                    color: $pink;
+                }
+            }
+        }
+
+        &.logged-out {
+            width: auto;
+            display: block;
+
+            a {
+                @extend %text-link;
+                float: left;
+
+                padding: {
+                    left: 0;
+                    right: 0;
+                }
+
+                &:nth-child(2):before {
+                    content: '';
+                    margin: 0 10px;
+                    text-decoration: none;
+                    display: inline-block;
+                    border-left: 1px solid $copy-dark;
+                    height: 14px;
+                    position: relative;
+                    top: 2px;
+                }
+            }
+        }
+
+        > ul {
+            padding-top: 0;
+
+            &:before, &:after {
+                margin-top: 1px;
+            }
+        }
+    }
+}

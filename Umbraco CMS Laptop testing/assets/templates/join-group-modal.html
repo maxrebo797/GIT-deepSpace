@@ -1,0 +1,22 @@
+<span class="modal__close-button" ng-click="close()"></span>
+<div class="modal__content">
+    <div class="modal__content-header">
+        <h1>Welcome</h1>
+    </div>
+    <div class="modal__content-body" ng-hide="responseMessage">
+        <div>
+            <p>Please tell us a bit about yourself and why you'd like to join the group.</p>
+
+            <textarea cols="30" rows="10" ng-model="reason" ng-disabled="$loading"></textarea>
+        </div>
+        <div class="modal__buttons">
+            <div class="modal__buttons--left" ng-if="canSkip">
+                <button class="link" ng-click="submit()" ng-disabled="$loading">Skip and request anyway</button>
+            </div>
+            <div class="modal__buttons--right">
+                <button class="pink" ng-click="submit(reason)" ng-disabled="$loading">Request</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal__content-body" ng-show="responseMessage" ng-bind="responseMessage"></div>
+</div>

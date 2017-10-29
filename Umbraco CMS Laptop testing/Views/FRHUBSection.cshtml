@@ -1,0 +1,133 @@
+﻿@{
+	Layout = "Master.cshtml";
+}
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+	
+
+<main id="maincontent" class="article">
+<div class="frhub-content">
+        <div class="wrap">
+
+
+  
+<section>
+            <div id="getinv-menu">
+<ul>
+            <li>
+                <a href="/fundraising/current-events/">Current events</a>
+            </li>
+            <li>
+                <a href="/fundraising/get-involved/">Get involved</a>
+            </li>
+            <li>
+                <a href="/fundraising/fun-runs-challenges/">Fun runs and challenges</a>
+            </li>
+            <li>
+                <a href="/fundraising/attend-a-bcna-event/">Attend a BCNA Event</a>
+            </li>
+    </ul>
+       </div>
+               </section>
+
+
+
+
+
+<section>
+<div class="items">
+   
+    <div class="module item-list frhub">
+
+        <ul>
+            <li style="height: 480px; ">
+                <div class="frhub-image">
+					<img src="@Umbraco.Media(@CurrentPage.frimage1.ToString()).Url" alt="" />
+                </div>
+
+                <div class="details">
+                    <div class="content" style="height: 185px;">
+                        <h3><span class="category">@Umbraco.Field("frtitle1")</span></h3>
+                        <p class="subtitle"><span class="ellip">@Umbraco.Field("frintro1")
+                        </span></p>
+                    </div>
+                    
+                  
+                </div>
+                  <div class="buttonText">
+                    <p><a href="">@Umbraco.Field("frbutton1")</a></p>
+                    </div>
+          </li>
+                
+            
+               
+            <li style="height: 480px; ">
+                <div class="frhub-image">
+					<img src="@Umbraco.Media(@CurrentPage.frimage2.ToString()).Url" alt="" />
+                </div>
+
+                <div class="details">
+                    <div class="content" style="height: 185px;">
+                   <h3><span class="category">@Umbraco.Field("frtitle2")</span></h3>
+                        <p class="subtitle"><span class="ellip">@Umbraco.Field("frintro2")
+                        </span></p>
+
+                    </div>
+                    
+                  
+                </div>
+                  <div class="buttonText">
+                    <p><a href="">@Umbraco.Field("frbutton2")</a></p>
+                    </div>
+          </li>
+          
+          
+					  
+					  
+					            <li style="height: 480px; ">
+                <div class="frhub-image">
+					<img src="@Umbraco.Media(@CurrentPage.frimage3.ToString()).Url" alt="" />
+                </div>
+
+                <div class="details">
+                    <div class="content" style="height: 185px;">
+                   <h3><span class="category">@Umbraco.Field("frtitle3")</span></h3>
+                        <p class="subtitle"><span class="ellip">@Umbraco.Field("frintro3")
+                        </span></p>
+
+                    </div>
+                    
+                  
+                </div>
+                  <div class="buttonText">
+                    <p><a href="">@Umbraco.Field("frbutton3")</a></p>
+                    </div>
+          </li>
+          
+
+        </ul>
+        
+ 
+    </div>
+
+
+
+
+
+                    
+</div>
+</section>
+
+
+  
+
+
+
+         
+        </div>
+    </div>
+
+
+
+
+</main>

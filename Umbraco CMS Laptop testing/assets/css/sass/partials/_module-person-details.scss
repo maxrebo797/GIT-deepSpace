@@ -1,0 +1,39 @@
+/** @package bcna-frontend 
+ *	Person details module - name / position with optional contact details
+ */
+
+div.person-details {
+	@include module-spacing;
+	@extend %clearfix;
+	
+	div.portrait {
+		width: 90px;
+        height: 90px;
+		float: left;
+		
+		img {
+			border-radius: 50%;
+		}
+	}
+	
+	div.details {
+		@include font(18px, false, $title-font, $weight-light);
+		margin-left: 120px;
+		padding-top: 15px;
+	}
+	
+	p.name {
+		font-weight: $weight-med;
+		margin-bottom: -0.3em;
+	}
+	
+	div.testimonial {
+		clear: both;
+	}
+	
+	&.with-contacts {
+		div.details {
+			padding-top: 0;
+		}
+	}
+}

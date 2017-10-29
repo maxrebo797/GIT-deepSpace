@@ -1,0 +1,433 @@
+/** @package bcna-frontend 
+ *	Mobile nav - TODO
+ */
+
+
+#mobile-nav {
+	background: #FFFFFF;
+	display: none;
+	height: 100%;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0 0 88px;
+	overflow: hidden;
+	position: fixed;
+	width: 320px;
+	z-index: 0;
+	-webkit-overflow-scrolling: touch;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	visibility: hidden;
+
+	@include mq-notlarge() {
+		display: block;
+	}
+
+}
+
+body {
+	&.mobile-nav-open {
+		header,
+		main,
+		footer {
+			-webkit-transform: translate(-320px, 0);
+			transform: translate(-320px, 0);
+			box-shadow: 0 0 5px #333;
+		}
+	}
+
+	header,
+	main,
+	footer {
+		position: relative;
+		top: 0;
+		left: 0;
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+
+		@include transition(-webkit-transform);
+	}
+}
+
+#mobile-nav {
+	padding: 5px;
+
+	&.mobile-nav-open {
+		visibility: visible;
+		overflow-y: scroll;
+	}
+
+	.pre-menu {
+		@include clearfix();
+		padding: 15px;
+		position: relative;
+
+		.mobile-nav-trigger {
+			float: left;
+			color: #ec008c;
+			position: static;
+			margin-top: 0;
+			@include font(35px, 1, $title-font);
+
+			&:after {
+				@include icon(close-round, 35px);
+				position: static;
+			}
+		}
+
+		.language {
+			position: absolute;
+			right: 3px;
+			top: 50%;
+			margin-top: -13px;
+			padding-right: 18px;
+
+			@include font(14px, false, $title-font);
+
+			&:after {
+				@include icon(arrow-d, 10px);
+				position: absolute;
+				top: 7px;
+				right: 0;
+				color: $copy-light;
+			}
+
+			.no-touch &:hover,
+			&.tapped {
+				&:after {
+					color: $pink;
+				}
+
+				ul {
+					right: 0px;
+                    left: auto;
+				}
+			}
+
+			p {
+				margin: 0 0 5px 0;
+
+				&:after {
+					@include icon(language, 23px);
+					margin-left: 8px;
+					float: right;
+					color: #000;
+				}
+			}
+
+			ul {
+				@include dropdown;
+			}
+		}
+	}
+
+	form {
+		position: relative;
+		width: 290px;
+		height: 36px;
+		border-radius: 36px;
+		padding-right: 36px;
+		background: $grey-light;
+		margin: 10px;
+
+		.search {
+			display: block;
+			width: 100%;
+			height: 100%;
+			padding-left: 15px;
+			background: transparent;
+			border: 0;
+			outline: none;
+		}
+
+		.submit {
+			display: block;
+			width: 16px;
+			height: 16px;
+			overflow: hidden;
+			padding: 0;
+			border: 0;
+			background: transparent;
+			position: absolute;
+			top: 10px;
+			right: 13px;
+			color: $pink;
+
+			&:before {
+				@include icon(search, 16px);
+			}
+		}
+	}
+
+	nav {
+		ul {
+			margin: 0;
+		}
+
+		li {
+			margin: 0;
+            
+			a {
+				border: {
+					width: 0 0 1px;
+					color: $border;
+					style: solid;
+				}
+			}
+
+			&:before {
+				content: none;
+			}
+
+			&:first-child a {
+				border-top-width: 1px;
+			}
+
+			&.has-submenu {
+				&.submenu-open {
+					> div:first-child {
+						margin: 5px 0;
+
+						a {
+							border-bottom-width: 0;
+
+							i:after {
+								@include icon(arrow-u, 10px);
+							}
+						}
+					}
+
+					> .submenu {
+						display: block;
+					}
+				}
+
+				a {
+					text-decoration: none;
+
+					i:after {
+						@include icon(arrow-d, 10px);
+
+						position: absolute;
+						top: 50%;
+						right: 0px;
+						margin-top: -18px;
+						padding: 0 13px;
+						text-align: center;
+					}
+				}
+
+				a i:after,
+				&.submenu-open > div:first-child a i:after {
+					width: auto;
+					height: auto;
+					line-height: 36px;
+				}
+			}
+
+			> div:first-child a {
+				display: block;
+				position: relative;
+				margin: 0 15px;
+                padding: 15px 35px 15px 0;
+
+				@include font(17px, 22px, $title-font, $weight-med);
+			}
+            > strong:first-child a {
+				display: block;
+				position: relative;
+				margin: 0 15px;
+
+				@include font(17px, 12px, $title-font, $weight-med);
+			}
+		}
+
+		.submenu {
+			display: none;
+
+			li {
+				a {
+					color: $blue;
+                    padding-left: 10px;
+
+					strong {
+						font-weight: 500;
+					}
+				}
+
+				.submenu li a {
+					color: #595959;
+					font-weight: $weight-light;
+				}
+
+                > strong a {
+				    display: block;
+				    position: relative;
+				    margin: 0 15px;
+                    padding: 10px 0;
+                    
+
+				    @include font(18px, 20px, $title-font, $weight-book);
+                    color: $copy-dark;
+                }
+
+                > div a {
+				    display: block;
+				    position: relative;
+				    margin: 0 15px;
+                    padding: 10px 0px 10px 10px;
+                    border-bottom: 1px solid $border;
+
+				    @include font(16px, 20px, $title-font, $weight-light);
+                    color: $copy-dark;
+			    }
+			}
+		}
+
+		&.navigation {
+			.has-submenu {
+
+				a i:after {
+					background: $grey-light;
+					color: $blue;
+				}
+
+				&.submenu-open {
+
+					> div:first-child {
+						background: #ec008c;
+						margin: 5px 0;
+
+						a {
+							color: $white;
+
+							i:after {
+								color: $white;
+								background: #ea489d;
+							}
+						}
+					}
+                    
+				}
+			}
+
+			> ul > li:last-child a {
+				border-bottom-width: 0;
+			}
+		}
+
+		&.quicklinks {
+			li {
+				> div:first-child {
+					a {
+						@include font(14px, 22px, $title-font, $weight-light);
+					}
+				}
+
+				&.has-submenu {
+					a i:after {
+						background: transparent;
+						color: #ec008c;
+					}
+
+					&.submenu-open {
+						a i:after {
+							color: #ec008c;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+}
+
+#mobile-nav-inner {
+	min-height: 3000px;
+}
+
+a.mobile-nav-trigger {
+	display: none;
+	position: absolute;
+	right: 40px;
+	top: 50%;
+	color: $pink;
+	text-decoration: none;
+    text-align: center;
+    font: {
+        family: $title-font;
+        size: 11px;
+        weight: $weight-bold;
+    }
+    letter-spacing: 1px;
+	&:hover {
+		text-decoration: none;
+		color: $pink-on;
+	}
+
+	@include mq-notlarge() {
+		display: block;
+	}
+
+	@include mq-phone() {
+		display: block;
+		bottom: auto;
+		right: $grid-spacing;
+		top: 50%;
+		margin-top: -40px;
+
+	}
+
+	&:after {
+		@include icon(menu, 40px);
+        margin: 0 auto;
+	}
+}
+
+@include mq-notlarge()
+{
+  a.mobile-nav-trigger
+  {
+      top: auto;
+      bottom: 20px;
+  }
+
+  header {
+      a.phone
+      {
+          top: auto;
+          bottom: 25px;
+      }
+
+      nav.language {
+          bottom: 25px;
+          top: auto;
+          right: 300px;
+          p {
+              bottom: 0;
+          }
+          &:after {
+              bottom: 10px;
+              top: auto;
+          }
+      }
+      .user-mobile {
+          right: 20px;
+          bottom: 90px;
+          top: auto;
+      } 
+  }
+}
+@media only screen and (max-width: ($bp-language-hide - 1)) {
+	header nav.language {
+        display: none;
+	}
+}
+
+@include mq-phone() {
+    header .user-mobile {
+        bottom: 80px;
+    }
+}

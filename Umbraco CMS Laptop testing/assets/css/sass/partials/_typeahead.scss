@@ -1,0 +1,22 @@
+/** @package bcna-frontend 
+ *	Twitter Typeahead
+ */
+
+.twitter-typeahead {
+    width: 100%;
+}
+.tt-dropdown-menu {
+    background-color: $white;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $border;
+}
+.tt-suggestion {
+    padding: 5px 10px;
+    line-height: 24px;
+}
+
+.tt-suggestion.tt-cursor {
+    background-color: $pink-light;
+    cursor: pointer;
+}

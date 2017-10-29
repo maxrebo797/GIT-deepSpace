@@ -1,0 +1,612 @@
+/** @package bcna-frontend
+ *	General content styles
+ */
+
+h1 {
+    @include heading-underline;
+}
+
+h2 {
+    @include heading-large;
+    @include margins(20px, false, 5px);
+
+    aside & {
+        @include heading-medium;
+
+        @include mq-notphone {
+            @include margins(0, false, -40px);
+        }
+
+        @include mq-phone {
+            @include margins(0, false, -20px);
+        }
+    }
+}
+
+h3 {
+    @include heading-medium;
+    @include margins(20px, false, 5px);
+}
+
+h4 {
+    @include heading-small;
+    @include margins(20px, false, 5px);
+}
+
+h5 {
+    @include heading-mini;
+    @include margins(20px, false, 5px);
+}
+
+
+/**	Copy styles
+ */
+
+p {
+	@include font-size(15px);
+    @include margins(5px, false, 20px);
+
+    a {
+        color: $blue-link;
+
+        &:hover, &:focus {
+            color: $pink;
+        }
+    }
+}
+
+.page-content {
+    li {
+        a {
+            color: $blue-link;
+        }
+    }
+}
+
+article a {
+    color: $blue-link;
+}
+
+.carousel article a {
+	color: #333333;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+    }
+}
+
+a, select, button, label, input[type="button"], input[type="submit"], input[type="checkbox"], input[type="radio"], input[type="file"] {
+    cursor: pointer;
+}
+
+a.more {
+    font-style: italic;
+
+    article & {
+        &:after {
+            content: '\2026'; // ...
+        }
+    }
+
+    aside & {
+        @include font-size(14px);
+        color: $blue-link;
+        display: block;
+        //margin-top: -$module-spacing;
+        //margin-bottom: $module-spacing;
+        @include module-spacing;
+        margin-top: -$module-spacing;
+
+        &:hover, &:focus {
+            color: $pink;
+            text-decoration: none;
+        }
+
+        &:after {
+            content: '\003E'; // >
+            vertical-align: middle;
+            margin-left: 3px;
+        }
+    }
+}
+
+a.feature {
+    @include font(18px, false, $title-font, $weight-book);
+    color: $copy-med;
+    border-bottom: 1px solid $copy-med;
+
+    &:hover, &:focus {
+        text-decoration: none;
+        border-color: $pink;
+    }
+}
+
+strong {
+    font-weight: $weight-bold;
+}
+
+em {
+    font-style: italic;
+}
+
+u {
+    text-decoration: underline;
+}
+
+sup {
+    vertical-align: top;
+    font-size: 70%;
+}
+
+/**	Images
+ */
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    &[width], &[height]{
+        width: auto;
+        max-width: none;
+    }
+}
+
+/**	Lists
+ */
+ul, ol {
+    @include margins(5px, false, 20px);
+
+    li {
+        @include margins(false, false, false, 40px);
+    }
+}
+
+ul > li {
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $pink;
+
+        margin: {
+            top: 9px;
+            left: -26px;
+        }
+    }
+}
+
+ol > li {
+    list-style-type: decimal;
+
+    li {
+        list-style-type: lower-roman;
+    }
+}
+
+.content li {
+    @include font-size(15px);
+}
+
+/**	Quotes
+ */
+
+blockquote {
+    @include margins($module-spacing, 0, $module-spacing, 0);
+    position: relative;
+    padding-left: 60px;
+
+    @include mq-large {
+        main.article & {
+            padding-left: $article-gutter;
+            margin-left: -$article-gutter;
+        }
+    }
+
+    &:before {
+        font: 120px/1 'Georgia', sans-serif;
+        font-style: italic;
+        color: $blue;
+        content: '\201C';
+        position: absolute;
+        left: -10px;
+        top: -6px;
+    }
+
+    p {
+        @include font(22px, 1.3, $base-font, $weight-light, italic);
+        margin: 0;
+    }
+}
+
+// Tables
+table {
+    width: 100% !important;
+    border-collapse: collapse;
+    margin: 1.8em 0;
+    @include font-size(15px);
+    th, td {
+        vertical-align: top;
+        padding: 10px 15px;
+        border: 1px solid $border;
+    }
+
+    th {
+        /*width: 30%;*/
+        font-weight: $weight-bold;
+    }
+
+    td {
+        /*width: 70%;*/
+    }
+
+    a {
+        color: $pink;
+    }
+
+    @include mq-small {
+        th, td {
+            /*display: block;
+            width: 100%;*/
+            border-bottom-width: 0;
+        }
+
+        tr:last-child td {
+            border-bottom-width: 1px;
+        }
+    }
+
+    @include mq-phone {
+        th, td {
+            /*display: block;
+            width: 100%;*/
+            border-bottom-width: 0;
+        }
+
+        tr:last-child td {
+            border-bottom-width: 1px;
+        }
+    }
+
+    &.no-border{
+        border: 0;
+        td{
+            border: 0;
+        }
+    }
+}
+
+p.note {
+    @include font(15px);
+    padding: 10px 12px;
+    margin-bottom: 30px;
+    border: 1px solid $border;
+
+    em {
+        font-style: normal;
+        color: $pink;
+    }
+}
+
+
+/**	Action links
+ */
+
+a.action.post {
+    @include button-large($white, $pink, $pink-on, arrow-r);
+}
+
+a.action.approve {
+    @include button-small($copy-dark, $confirm, $confirm-on, plus);
+}
+
+a.action.deny {
+    @include button-small($white, $alert, $alert-on, close);
+}
+
+a.action.join {
+    @include button-small($white, $blue, $blue-on, arrow-r);
+}
+
+a.action.go {
+    @include button-small($copy-dark, $grey-dark, $grey-light, arrow-r);
+}
+
+a.action.disconnect {
+    @include button-small($copy-dark, $grey-dark, $grey-light, close);
+}
+
+a.action.cancel {
+    @include button-small($copy-dark, $grey-dark, $grey-light);
+    text-align: center;
+}
+
+hr {
+    @include margins($module-spacing, false, $module-spacing, false);
+    background: transparent;
+    height: 0;
+    border: 0;
+    border-top: 1px solid $border;
+}
+
+// For demo page
+p.style {
+    @include heading-mini;
+    margin-bottom: 30px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #999;
+    color: #999;
+}
+
+// Main content area
+main {
+    > div.content {
+        @extend %wrap-inner;
+        @extend %clearfix;
+        position: relative;
+        min-height: 500px;
+        padding: {
+            top: 35px;
+            bottom: 35px;
+        }
+
+        > .loading-spinner {
+            margin-top: 30px;
+        }
+
+        @include mq-phone {
+            padding: {
+                top: $grid-spacing;
+                bottom: $grid-spacing;
+            }
+        }
+
+        > div.wrap {
+            @include mq-notphone {
+                @include grid-outer();
+            }
+        }
+    }
+    // Main article
+    div.article {
+        clear: both;
+        margin-bottom: $content-spacing*2;
+
+        @include mq-phone {
+            margin-bottom: $grid-spacing*1.5;
+        }
+
+        > :first-child {
+            margin-top: 0;
+        }
+    }
+    // Modules
+    div.items {
+        clear: both;
+    }
+    // Section links
+    nav.section {
+        @include mq-notsmall {
+            @include grid-column(3/4);
+        }
+
+        @include mq-small {
+            @include grid-column(2/3);
+        }
+    }
+}
+
+// Headings on landing pages
+main.landing {
+    article h2 {
+        @include heading-underline;
+    }
+
+    div.items h2 {
+        margin-bottom: -25px;
+    }
+}
+
+// Headings on search results pages
+main.search {
+    div.before h1,
+    div.before h2 {
+        @include font(16px, false, $base-font, $weight-med);
+        float: left;
+        color: $copy-dark;
+        margin: 0;
+        height: 90px;
+        padding-top: 16px;
+
+        span {
+            font-style: italic;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+// Article title section
+main div.before {
+    @extend %clearfix;
+    min-height: 56px;
+
+    p.subtitle {
+        @include heading-mini;
+        @include margins(0, 0, 5px, 0);
+        color: $copy-med;
+        float: none;
+
+        span.date {
+            font-weight: $weight-light;
+            padding-left: 6px;
+            &.nopadding {
+                padding-left: 0;
+            }
+        }
+
+    }
+
+    h2 {
+        //@include title-underline;
+    }
+
+    .before__action {
+        @include button-small($copy-dark, $grey-dark, $pink-on);
+
+        &:hover, &:focus {
+            color: white;
+        }
+
+        @include mq-phone {
+            margin-bottom: 20px;
+        }
+
+        @include mq-notphone {
+            float: right;
+            margin-top: 2px;
+        }
+    }
+}
+
+//main.article {
+//	> div.content > div.wrap {
+//		margin-left: 0;
+//	}
+//}
+
+// Social sharing
+div.before ul.social {
+    float: right;
+    margin-top: 12px;
+
+    @include mq-notlarge {
+        float: none;
+        clear: both;
+
+        margin: {
+            top: 0;
+            bottom: $grid-spacing;
+        }
+    }
+}
+
+
+div.inline-help {
+    float: right;
+    position: relative;
+    cursor: pointer;
+    margin-top: 10px;
+
+    ul.form & {
+        margin-top: -27px;
+    }
+
+    &:before {
+        @include font(13px, 1, $title-font);
+        content: '\003F';
+        display: block;
+        box-sizing: border-box;
+        text-align: center;
+        padding-top: 6px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: $grey-light;
+    }
+
+    &:hover:before,
+    &.active:before {
+        background: $pink;
+        color: $white;
+    }
+
+    p.help {
+        @include font(15px, 1.3, $base-font);
+        position: absolute;
+        z-index: 999;
+        width: 220px;
+        min-height: 60px;
+        padding: 10px 12px;
+        background: #fff;
+        border: 1px solid $border;
+        margin-top: -43px;
+        margin-left: 45px;
+        display: none;
+
+        &:before, &:after {
+            margin-top: 8px;
+        }
+
+        &.right {
+            @include arrow(left, top, 10px, $white, darken($border, 10%), 1px);
+        }
+
+        &.left {
+            @include arrow(right, top, 10px, $white, darken($border, 10%), 1px);
+            margin-left: -240px;
+        }
+    }
+
+    &.active p {
+        display: block;
+    }
+}
+
+div.module {
+    ul {
+        @include reset-list;
+    }
+}
+
+article div.module:first-child,
+aside div.module:first-child {
+    margin-top: 0;
+}
+
+.ellip {
+    display: block;
+    height: 100%;
+}
+
+.ellip-line {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%;
+}
+
+.ellip,
+.ellip-line {
+    position: relative;
+    overflow: hidden;
+}
+
+.right-to-left, .right-to-left p, .right-to-left h1, .right-to-left h2, .right-to-left h3, .right-to-left td, .right-to-left li, .right-to-left a {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+.alert {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px;
+
+    &.warning {
+        border: 1px solid red;
+        background: #ffdede;
+        color: #252525;
+    }
+}

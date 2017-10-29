@@ -1,0 +1,62 @@
+/** @package bcna-frontend 
+ *	sidebar callout module
+ */
+
+div.callout {
+	@include module-spacing;
+	
+	h2 {
+		@include module-heading;
+	}
+	
+	img {
+		width: 100%;
+		margin: 0;
+	}
+	
+	div.image img {
+		border-bottom: 5px solid $pink;
+	}
+	
+	div.logo img {
+		border: 1px solid $grey-light;
+		border-top: 0;
+	}
+	
+	div.content {
+		padding: 15px;
+		
+		article & {
+			border: 1px solid $border;
+		}
+		
+		aside & {
+			background: $white;
+		}
+	}
+	
+	div.gmap {
+		height: 200px;
+        img {
+            max-width: none;
+        }
+	}
+	
+	p {
+		@include font(15px);
+		margin: 0.8em 0;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+div.callout.map {
+    div.content {
+        padding: 0px;
+    }
+}

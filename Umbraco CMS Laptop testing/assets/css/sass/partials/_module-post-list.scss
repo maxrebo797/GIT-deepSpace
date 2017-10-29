@@ -1,0 +1,135 @@
+/** @package bcna-frontend
+ *	Post list module
+ */
+
+div.post-list {
+	ul li {
+		margin-bottom: 70px;
+
+		@include mq-phone {
+			margin-bottom: 40px;
+		}
+	}
+
+	div.portrait {
+		float: left;
+		width: $article-gutter - $grid-spacing;
+        height: $article-gutter - $grid-spacing;
+		display: none;
+        
+
+		@include mq-notsmall {
+			display: block;
+		}
+	}
+
+	div.post {
+		@include mq-notsmall {
+			margin-left: $article-gutter;
+		}
+	}
+
+	div.subtitle {
+		@extend %post-subtitle;
+	}
+
+	div.excerpt {
+		position: relative;
+		border: 1px solid $grey-light;
+		padding: $grid-spacing;
+		padding-bottom: 0;
+
+		h3 {
+			@include font(16px, false, $title-font, $weight-med);
+			@include margins(0, false, 10px);
+			color: $copy-dark;
+
+			a {
+				@extend %text-link;
+				text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+			}
+		}
+
+		p {
+			margin: 0;
+		}
+
+		p.featured {
+			@include font(12px, 1, $title-font);
+			padding: 10px 14px;
+			text-transform: uppercase;
+			background: $pink;
+			color: $white;
+			position: absolute;
+			top: 0;
+			left: $grid-spacing;
+		}
+
+        div.summary {
+            p {
+                @include margins(5px, false, 20px);
+            }
+            .more {
+                @include font(15px);
+            }
+        }
+	}
+
+	div.post.featured {
+		div.excerpt {
+			padding-top: $grid-spacing*2.25;
+		}
+	}
+
+	div.post.with-image {
+		div.image {
+			position: relative;
+			float: left;
+			width: 22%;
+
+			@include mq-phone {
+				display: none;
+			}
+
+			img {
+				width: 100%;
+			}
+
+			span.tag {
+				@extend %image-tag;
+			}
+
+			span.video {
+				@extend %video-tag;
+			}
+		}
+
+		div.text {
+			@include mq-notphone {
+				margin-left: 22%;
+				padding-left: 25px;
+			}
+		}
+	}
+
+	div.meta {
+		@extend %post-meta;
+		background: $grey-light;
+		padding: 10px;
+		padding-right: 25px;
+		
+		.meta-left {
+			position: static;	
+		}
+
+		button.recommend {
+			&:hover, &:focus {
+				background: $pink;
+				color: $white;
+			}
+		}
+	}
+}

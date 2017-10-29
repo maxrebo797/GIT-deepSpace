@@ -1,0 +1,24 @@
+<span class="modal__close-button" ng-click="$dismiss()"></span>
+<div class="modal__content">
+    <div class="modal__content-header">
+        <h1>Report</h1>
+    </div>
+    <div class="modal__content-body" ng-hide="responseMessage">
+        <div>
+            <p>Please help us understand what is happening.</p>
+
+            <ul class="form">
+                <li>
+                    <label for="summary"><strong>Why don't you want to see this?</strong></label>
+                    <textarea id="summary" cols="30" rows="10" ng-model="summary" ng-disabled="$loading"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="modal__buttons">
+            <div class="modal__buttons--right">
+                <button class="pink" ng-click="submit(summary)" ng-disabled="$loading">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal__content-body" ng-show="responseMessage" ng-bind="responseMessage"></div>
+</div>

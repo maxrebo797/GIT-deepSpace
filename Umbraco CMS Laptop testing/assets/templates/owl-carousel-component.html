@@ -1,0 +1,51 @@
+<div>
+    <div class="homepage-information-wrapper heads">
+        <div class="content">
+            <h2 class="homepage-information-heading">Information and resources for</h2>
+            <section class="homepage-information-carousel carousel owl-carousel">
+                <article class="head-{{ $index }} head-{{ d.Key }}" ng-class="getActiveClass($index)" ng-repeat="d in data">
+                    <a href="#" ng-click="toggleActive($index); $event.preventDefault();">
+                        <!--<img ng-src="{{ d.Image }}" alt="{{ d.DisplayText }}">-->
+                        <div class="image" ng-style="{'background-image':'url(' + d.Image + ')'}"></div>
+                        <br>
+                        <span ng-bind-html='d.DisplayText'></span>
+                    </a>
+                </article>
+            </section>
+        </div>
+    </div>
+    <div class="resources-wrapper heads">
+        <div class="content">
+            <section class="resources">
+                <div class="helpful-links" ng-if="activeHead.Resources.HelpfulLinks">
+                    <h2>Helpful links</h2>
+                    <ul>
+                        <li ng-repeat="link in activeHead.Resources.HelpfulLinks">
+                            <a ng-href="{{ link.Url }}">{{ link.DisplayText }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="personal-stories" ng-if="activeHead.Resources.PersonalStories">
+                    <h2>Personal stories</h2>
+                    <blockquote class="user-story">
+                        <div class="author">
+                            <div class="image" ng-style="{'background-image':'url(' + activeHead.Resources.PersonalStories.Image + ')'}"></div>
+                            <footer>
+                                <cite>{{ activeHead.Resources.PersonalStories.Author.Name }}</cite>
+                                {{ activeHead.Resources.PersonalStories.Author.Title }}
+                            </footer>
+                        </div>
+                        <p>
+                            {{ activeHead.Resources.PersonalStories.Quote }}
+                        </p>
+                    </blockquote>
+                </div>
+                <div class="did-you-know">
+                    <h2>Did you know &hellip;</h2>
+                    <p>{{ activeHead.Resources.DidYouKnow.Text }}</p>
+                    <a class="read-more" ng-href="{{ activeHead.Resources.DidYouKnow.Url }}">Read more</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

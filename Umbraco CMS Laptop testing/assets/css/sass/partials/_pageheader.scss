@@ -1,0 +1,121 @@
+/** @package bcna-frontend 
+ *	Landing page header
+ */
+
+div.header {
+	height: 220px;
+	//background-color: $grey-light;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	div.wrap {
+		@extend %wrap-outer;
+		height: 100%;
+	}
+	
+	div.title {
+		display: inline-block;
+		min-width: 320px;
+		max-width: 430px;
+		padding: 25px;
+		background: $white;
+		border-left: 5px solid $pink;
+		
+		@include mq-phone {
+			width: 100%;
+			max-width: none;
+			padding: $grid-spacing $grid-spacing - 5;
+		}
+	}
+	
+	h1,
+	p.title {
+		@extend h1;
+		margin: 0;
+		line-height: 1.3;
+		
+		&:after {
+			display: none;
+		}
+	}
+	
+	p {
+		margin: 0;
+	}
+	
+	p.subtitle {
+		@include heading-mini;
+		color: $copy-med;
+		margin: 0 0 5px 0;
+	}
+	
+	div.highlight {
+		position: absolute;
+		bottom: $grid-spacing;
+		right: $grid-spacing;
+		background: $white;
+		
+		@include mq-notlarge {
+			display: none;
+		}
+		
+		p {
+			@include font(22px, 1, $title-font);
+			color: $copy-med;
+			float: left;
+			height: 46px;
+			padding: 12px 14px;
+			margin: 0;
+		}
+		
+		p.date {
+			@include font(13px);
+			font-weight: $weight-light;
+			display: block;
+			padding: 7px;
+			float: right;
+			background: $pink;
+			color: $white;
+			text-align: center;
+			text-transform: uppercase;
+			
+			strong {
+				@include font(18px);
+				font-weight: $weight-med;
+				display: block;
+			}
+			
+			sup {
+				@include font(10px);
+				vertical-align: top;
+				text-transform: lowercase;
+			}
+		}
+		
+		a {
+			@extend %text-link;
+			text-decoration: none;
+		}
+	}
+	
+	// These elements injected by main.js for vertical alignment
+	div.table {
+		@extend %wrap-inner;
+		display: table;
+		width: 100%;
+		height: 100%;
+	}
+	
+	div.cell {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+	@include mq-phone {
+		height: auto !important;
+		
+		div.table {
+			padding: 0;
+		}
+	}
+}

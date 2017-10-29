@@ -1,0 +1,248 @@
+
+.sprite-amex {
+	width: 45px;
+	height: 32px;
+	background-position: 0px -40px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-amex-2x {
+	$width: 45px;
+	$height: 32px;
+	$offset-x: 0px;
+	$offset-y: -40px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-arrow-left {
+	width: 50px;
+	height: 50px;
+	background-position: 0px -350px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-arrow-left-2x {
+	$width: 50px;
+	$height: 50px;
+	$offset-x: 0px;
+	$offset-y: -350px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-arrow-right {
+	width: 50px;
+	height: 50px;
+	background-position: 0px -410px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-arrow-right-2x {
+	$width: 50px;
+	$height: 50px;
+	$offset-x: 0px;
+	$offset-y: -410px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-checkbox-on {
+	width: 40px;
+	height: 40px;
+	background-position: 0px -250px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-checkbox-on-2x {
+	$width: 40px;
+	$height: 40px;
+	$offset-x: 0px;
+	$offset-y: -250px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-checkbox {
+	width: 40px;
+	height: 40px;
+	background-position: 0px -300px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-checkbox-2x {
+	$width: 40px;
+	$height: 40px;
+	$offset-x: 0px;
+	$offset-y: -300px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-diners {
+	width: 45px;
+	height: 32px;
+	background-position: 0px -82px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-diners-2x {
+	$width: 45px;
+	$height: 32px;
+	$offset-x: 0px;
+	$offset-y: -82px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-discover {
+	width: 45px;
+	height: 32px;
+	background-position: 0px -124px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-discover-2x {
+	$width: 45px;
+	$height: 32px;
+	$offset-x: 0px;
+	$offset-y: -124px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-icon-calendar {
+	width: 30px;
+	height: 30px;
+	background-position: 0px 0px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-icon-calendar-2x {
+	$width: 30px;
+	$height: 30px;
+	$offset-x: 0px;
+	$offset-y: 0px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-mastercard {
+	width: 45px;
+	height: 32px;
+	background-position: 0px -166px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-mastercard-2x {
+	$width: 45px;
+	$height: 32px;
+	$offset-x: 0px;
+	$offset-y: -166px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+.sprite-visa {
+	width: 45px;
+	height: 32px;
+	background-position: 0px -208px;
+	background-image: url(/assets/css/images/sprites.png);
+	display: block;
+}
+
+.sprite-visa-2x {
+	$width: 45px;
+	$height: 32px;
+	$offset-x: 0px;
+	$offset-y: -208px;
+	$total-width: 50px;
+	width: $width/2;
+	height: $height/2;
+	background-position: $offset-x/2 $offset-y/2;
+	background-image: url(/assets/css/images/sprites.png);
+	background-size: $total-width/2 auto;
+	display: block;
+}
+
+
+/** Extends sprite classes created by grunt-spritesmith
+ *	@param (string) $sprite - the sprite to use (without sprite- prefix)
+ */
+@mixin sprite($sprite, $retina:false, $hidetext:true) {
+	@if($retina) {
+		@extend .sprite-#{$sprite}-2x;
+	}
+	@else {
+		@extend .sprite-#{$sprite};
+	}
+	
+	@if($hidetext) {
+		overflow: hidden;
+		text-indent: -9999em;
+	}
+	box-sizing: content-box;
+}

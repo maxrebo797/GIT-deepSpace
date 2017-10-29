@@ -1,0 +1,115 @@
+<div class="module comments">
+    <h2>Comments</h2>
+    <button class="comment" type="button" ng-hide="!loggedIn" ng-click="$cmtvisible=!$cmtvisible">Comment</button>
+
+    <ul>
+        <li ng-show="$cmtvisible">
+            <div class="new-comment-container">
+                <div class="new-comment">
+                    <h3>Add comment</h3>
+                    <form ng-submit="create()">
+                        <textarea name="new-comment-body" ng-model="$create.body" tinymce></textarea>
+                        <div>
+                            <button class="post" type="submit" ng-disabled="$create.$loading">Post</button>
+                            <div class="loading" ng-show="$create.$loading"><img src="/assets/images/loader.gif" alt="Loading..." /></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </li>
+
+        <li ng-repeat="cmt in data" ng-include="'thread.html'" id="{{cmt.id}}"></li>
+    </ul>
+    
+    <script type="text/ng-template" id="thread.html">
+        <div class="portrait">
+            <a href="/online-network/members/{{cmt.userName}}">
+                <img ng-src="{{cmt.authorImageUrl}}" ng-show="cmt.authorImageUrl" />
+                <img src="//placehold.it/60x60" ng-hide="cmt.authorImageUrl" />
+            </a>
+        </div>
+
+        <div class="comment">
+            <div class="subtitle">
+                <p class="action"><span class="name"><a href="/online-network/members/{{cmt.userName}}">{{cmt.author}}</a></span> commented <span class="time">{{moment(cmt.created).local().format('h:mma')}}</span>, <span class="date">{{moment(cmt.created).local().format('Do MMMM YYYY')}}</span></p>
+            </div>
+            <div class="content">
+                <div ng-show="!cmt.$editing">
+                    <div ng-bind-html="safe(cmt.body)"></div>
+                    <p class="text-right"><a ng-hide="!admin" ng-click="cmt.$editing = !cmt.$editing">Edit</a></p>
+                </div>
+                <div ng-show="admin && cmt.$editing">
+                    <form ng-submit="edit(cmt)" ng-init="cmt.$edit = { id: cmt.id, body: safe(cmt.body) }">
+                        <textarea name="edit-comment-body" ng-model="cmt.$edit.body" tinymce></textarea>
+                        <div>
+                            <p class="text-right"><button class="post" type="submit" ng-disabled="cmt.$edit.$loading">Submit edit</button></p>
+                            <div class="loading" ng-show="cmt.$edit.$loading"><img src="/assets/images/loader.gif" alt="Loading..." /></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div ng-include="'action-buttons.html'"></div>
+        </div>
+        
+        <div ng-include="'reply.html'"></div>
+        <ul class="responses">
+            <li ng-scope ng-repeat="cmt in cmt.children" ng-include="'response.html'" id="{{resp.id}}"></li>
+        </ul>
+    </script>
+
+    <script type="text/ng-template" id="response.html">
+        <div class="comment response">
+            <div class="subtitle">
+                <div class="portrait">
+                    <a href="/online-network/members/{{cmt.userName}}">
+                        <img ng-src="{{cmt.authorImageUrl}}" ng-show="cmt.authorImageUrl" />
+                        <img src="//placehold.it/30x30" ng-hide="cmt.authorImageUrl" />
+                    </a>
+                </div>
+                <p class="action"><span class="name"><a href="/online-network/members/{{cmt.userName}}">{{cmt.author}}</a></span> replied to <span class="name"><a href="/online-network/members/{{cmt.replyingToUserName}}">{{cmt.replyingToAuthor}}</a></span> <span class="time">{{moment(cmt.created).local().format('h:mma')}}</span>, <span class="date">{{moment(cmt.created).local().format('Do MMM YYYY')}}</span></p>
+            </div>
+            <div class="content">
+                <div ng-show="!cmt.$editing">
+                    <div ng-bind-html="safe(cmt.body)"></div>
+                    <p class="text-right"><a ng-hide="!admin" ng-click="cmt.$editing = !cmt.$editing">Edit</a></p>
+                </div>
+                <div ng-show="admin && cmt.$editing">
+                    <form ng-submit="edit(cmt)" ng-init="cmt.$edit = { id: cmt.id, body: safe(cmt.body) }">
+                        <textarea name="edit-comment-body" ng-model="cmt.$edit.body" tinymce></textarea>
+                        <div>
+                            <p class="text-right"><button class="post" type="submit" ng-disabled="cmt.$edit.$loading">Submit edit</button></p>
+                            <div class="loading" ng-show="cmt.$edit.$loading"><img src="/assets/images/loader.gif" alt="Loading..." /></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div ng-include="'action-buttons.html'"></div>
+        </div>
+
+        <div ng-include="'reply.html'"></div>
+    </script>
+
+    <script type="text/ng-template" id="action-buttons.html">
+        <div ng-hide="!loggedIn" class="actions-container">
+            <div class="actions">
+                <a class="reply" ng-click="cmt.$replying = !cmt.$replying">Reply</a>
+                <report entity-id="{{cmt.id}}" entity-type="Post"></report>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="reply.html">
+        <div class="new-comment-container" ng-show="cmt.$replying">
+            <div class="new-comment">
+                <h3>Add comment</h3>
+                <form ng-submit="create(cmt)">
+                    <textarea name="new-comment-body" ng-model="cmt.$create.body" tinymce></textarea>
+                    <div>
+                        <button class="post" type="submit" ng-disabled="cmt.$create.$loading">Post</button>
+                        <div class="loading" ng-show="cmt.$create.$loading"><img src="/assets/images/loader.gif" alt="Loading..." /></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </script>
+</div>

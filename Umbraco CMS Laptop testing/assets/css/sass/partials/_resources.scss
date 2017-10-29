@@ -1,0 +1,51 @@
+/** @package bcna-frontend 
+ *	Resources section
+ */
+main.resources.landing {
+    .items .before {
+        min-height: 86px;
+    }
+    /*div.item-list.resources {
+        .actions {
+            position: static;
+        }
+    }*/
+}
+
+div.search.resources {
+	ul {
+		@include grid-outer;
+	}
+	
+	li {
+		@include grid-column(1.5/4);
+	}
+	
+	li:last-child {
+		@include grid-column(1/4);
+	}
+	
+	@include mq-phone {
+		li:nth-child(1) {
+			@include grid-column(1/1);
+		}
+		
+		li:nth-child(2) {
+			@include grid-column(3/5);
+		}
+		
+		li:nth-child(3) {
+			@include grid-column(2/5);
+		}
+	}
+	
+	@media only screen and (max-width: 380px) {
+		li:nth-child(2) {
+			@include grid-column(1/2);
+		}
+		
+		li:nth-child(3) {
+			@include grid-column(1/2);
+		}
+	}
+}

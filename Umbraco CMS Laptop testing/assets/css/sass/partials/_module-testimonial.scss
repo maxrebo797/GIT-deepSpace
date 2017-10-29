@@ -1,0 +1,11 @@
+/** @package bcna-frontend 
+ *	Testimonial module with person details
+ */
+
+div.testimonial {
+	@include module-spacing;
+	
+	div.person-details {
+		margin-bottom: $grid-spacing;
+	}
+}

@@ -1,0 +1,287 @@
+/** @package bcna-frontend
+ *	Post styles
+ *	Some elements are shared (post-meta, post-subtutle) so are defined as
+ *	%placeholders and @extended by their respective parent elements.
+ */
+
+$meta-height: 38px;
+
+%post-meta {
+	@extend %clearfix;
+    position: relative;
+
+	a {
+		@include font(14px, 1, $title-font, $weight-med);
+		text-decoration: none;
+
+		&:hover, &:focus {
+			color: $pink;
+		}
+	}
+
+
+    .meta-left {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+	.add,
+	.reply,
+	.message,
+	button.recommend {
+		@include button-small($copy-dark, $grey-dark, $grey-light);
+		min-width: 100px;
+		float: left;
+		margin-right: 10px;
+		text-align: center;
+	}
+
+	button.recommend span.count:before {
+		content:'\007C';  // |
+		margin-left: 3px;
+		margin-right: 6px;
+	}
+
+	a.comments {
+		float: left;
+		margin-top: 0px;
+        color: inherit;
+        height: $meta-height;
+        line-height: $meta-height;
+		&:before {
+			@include icon(comment, 24px);
+			margin-right: 3px;
+			display: inline-block;
+			color: $pink;
+		}
+
+		span.action {
+			display: none;
+		}
+	}
+
+	ul.tags {
+		display: block;
+		clear: both;
+		margin: 0;
+
+		li {
+			float: none;
+            display: inline-block;
+			margin-bottom: 0;
+			margin-right: 3px;
+			margin-left: 0;
+            height: 38px;
+            line-height: 38px;
+
+			&:before {
+				display: none;
+			}
+
+			a {
+				color: inherit;
+				font-weight: $weight-book;
+
+				&:hover, &:focus {
+					color: $pink;
+				}
+			}
+
+			&:after {
+				content: ',';
+			}
+
+			&:last-child:after {
+				content: '';
+			}
+		}
+
+		&:before {
+			@include icon(ticket, 24px);
+			margin-right: 8px;
+			display: inline-block;
+			color: $pink;
+            line-height: 38px;
+            height: 38px;
+		}
+
+		@include mq-phone {
+			margin-top: 10px;
+		}
+	}
+
+	form.report {
+		width: 150px;
+
+		div.select {
+			@include button-small($copy-dark, $grey-dark, $grey-light);
+			height: 38px;
+			min-width: 0;
+
+			div.value {
+				font-style: normal;
+				color: inherit !important;
+				width: 100%;
+				padding-right: 0;
+			}
+		}
+	}
+
+	@include mq-phone {
+		div.action,
+		div.interact {
+			@include clearfix;
+		}
+	}
+}
+
+%post-subtitle {
+	padding-top: 4px;
+
+	p.action,
+	p.date {
+		@include font(12px, 1, $title-font);
+		margin: 0;
+	}
+
+	span.name,
+	span.date {
+		font-weight: $weight-bold;
+		text-transform: uppercase;
+	}
+	
+	span.name a {
+		color: $blue-link;
+	}
+
+	/*
+    span {
+        a {
+            color: inherit;
+        }
+    }
+	*/
+
+	@include mq-notphone {
+		height: 28px;
+
+		p.action {
+			float: left;
+		}
+		p.date {
+			float: right;
+		}
+	}
+
+	@include mq-phone {
+		p.action,
+		p.date {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+// Single post
+div.article.post {
+
+	div.content {
+		margin-left: $article-gutter;
+		margin-bottom: $content-spacing*2;
+
+		@include mq-phone {
+			margin-left: 0;
+			padding-bottom: $content-spacing;
+			margin-bottom: $content-spacing;
+		}
+	}
+
+	div.details {
+		border-top: 1px solid $border;
+		border-bottom: 1px solid $border;
+		padding: $content-spacing*2 0;
+		margin-bottom: $content-spacing*2;
+
+		@include mq-phone {
+			padding: 30px 0;
+			margin-bottom: 30px;
+		}
+
+		&.above {
+			border: 0;
+			padding: 0;
+
+			@include mq-phone {
+				margin-bottom: $content-spacing;
+			}
+
+			div.subtitle {
+				padding-top: 24px;
+
+				@include mq-phone {
+					padding-top: 12px;
+				}
+			}
+		}
+	}
+
+	div.portrait {
+		float: left;
+		width: $article-gutter - $grid-spacing;
+        height: $article-gutter - $grid-spacing;
+
+		img {
+			width: 100%;
+			border-radius: 50%;
+			margin: 0;
+		}
+
+		@include mq-phone {
+			display: none;
+		}
+	}
+
+	div.subtitle {
+		@extend %post-subtitle;
+		margin-left: $article-gutter;
+
+		@include mq-phone {
+			margin-left: 0;
+		}
+	}
+
+	div.meta {
+		@extend %post-meta;
+		margin-left: $article-gutter;
+
+		@include mq-phone {
+			margin-left: 0;
+			padding-top: 5px;
+		}
+
+		div.interact {
+			float: left;
+
+			@include mq-phone {
+				float: none;
+				clear: both;
+				margin-top: 10px;
+			}
+		}
+
+		p.tags {
+			float: left;
+			margin-top: 12px;
+		}
+
+		form.report {
+			float: left;
+			margin-right: 20px;
+
+			@include mq-phone {
+				float: none;
+				clear: both;
+			}
+		}
+	}
+}

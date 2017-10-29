@@ -1,0 +1,109 @@
+#members-filter {
+    max-width: 1190px;
+    margin: 0 auto;
+    background: $grey-light;
+    text-align: center;
+
+    ul {
+        display: block;
+        list-style: none;
+        max-width: $inner;
+		margin: 0 auto;
+        height: 100%;
+        padding: 25px 0 5px 0;
+        text-align: left;
+
+        li {
+            width: auto;
+            margin: 0;
+			margin-bottom: 20px;
+            border-left-width: 15px;
+        }
+
+        .select .select,
+        .text {
+            background: $white;
+            border: none;
+            padding: 14px 9px;
+        }
+		
+		.submit {
+			float: left;
+		}
+		
+		button.submit {
+			width: 100%;
+		}
+		
+		@include mq-notlarge {
+			margin-right: 20px;
+		}
+		
+		@include mq-large {
+			li {
+				width: 14%;
+				
+				&.submit {
+					width: 16%;
+				}
+			}
+		}
+		
+		@include mq-medium {
+			li {
+				width: 33.333%;
+			}
+		}
+		
+		@include mq-small {
+			li {
+				width: 33.333%;
+			}
+		}
+		
+		@include mq-phone {
+			li {
+				width: 100%;
+			}
+		}
+
+		
+		/*
+        .select {
+            .select {
+                min-width: 80px;
+            }
+
+            &:after {
+                width: 15px;
+                background-color: $white;
+            }
+        }
+
+        .category {
+            width: 160px;
+        }
+
+        .activities {
+            width: 120px;
+        }
+
+        .username {
+            width: 120px;
+            border-left-width: 0;
+        }
+
+        .relationship {
+            width: 180px;
+        }
+
+        .postcode {
+            width: 87px;
+        }
+
+        .submit .submit {
+            min-width: 135px;
+        }
+		*/
+    }
+}

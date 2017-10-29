@@ -1,0 +1,59 @@
+/** @package bcna-frontend 
+ *	"Personal stories" quote
+ */
+
+div.quote {
+	@include module-spacing;
+	
+	h2 {
+		@include heading-underline;
+		@include font-size(30px);
+		margin-bottom: 30px !important;
+	}
+	
+	div.portrait {
+		width: 90px;
+        height: 90px;
+		float: left;
+		
+		img {
+			width: 100%;
+			margin: 0;
+			border-radius: 50%;
+		}
+	}
+	
+	div.details {
+		margin-left: 90px + $grid-spacing;
+		padding-top: $grid-spacing;
+        margin-bottom: 40px;
+		
+		p {
+			@include font(18px, 1.3, $title-font);
+			margin: 0;
+			
+			&.name {
+				font-weight: $weight-med;
+			}
+			
+			&.description {
+				font-weight: $weight-light;
+			}
+		}
+	}
+	
+	blockquote {
+		clear: both;
+		margin: 0;
+		padding-top: $grid-spacing;
+		padding-left: 0;
+		
+		&:before {
+			display: none;
+		}
+	}
+
+    .readmore {
+        @include button-small($white, $pink, $pink-on, arrow-r, block);
+    }
+}

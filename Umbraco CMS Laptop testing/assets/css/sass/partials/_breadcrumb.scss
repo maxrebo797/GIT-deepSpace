@@ -1,0 +1,32 @@
+/** @package bcna-frontend 
+ *	Breadcrumb links
+ */
+
+ul.breadcrumb {
+	@extend %clearfix;
+	@include reset-list;
+	@include font(14px);
+	color: $copy-med;
+	margin-bottom: 20px;
+	
+	@include mq-notphone {
+		@include grid-column(1/1);
+	}
+	
+	li {
+		float: left;
+		
+		&:after {
+			content: '\002F';
+			padding: 0 6px;
+		}
+		
+		&:last-child:after {
+			display: none;
+		}
+	}
+	
+	a {
+		@extend %text-link;
+	}
+}

@@ -1,0 +1,116 @@
+/** @package bcna-frontend
+ *	Modal popup styles
+ */
+
+div.bcna-modal {
+	li.submit {
+		margin-top: 10px;
+	}
+
+	li.forgot {
+		@include grid-column(1/2);
+		@include margins(20px);
+		@include font(15px);
+
+        @include mq-phone() {
+		    width: 100%;
+	    }
+	}
+
+	p.login a,
+	li.forgot a {
+		color: $copy-dark;
+		text-decoration: underline;
+
+		&:hover, &:focus {
+			color: $pink;
+		}
+	}
+}
+div.modal.login {
+    h1, p.login {
+        display: inline-block;
+    }
+    p.login {
+        padding-left: 20px;
+        @include font(18px);
+    }
+}
+
+.modal {
+    &__close-button  {
+        position: absolute;
+        cursor: pointer;
+        z-index: 8040;
+        background: $blue;
+        text-align: center;
+        text-decoration: none;
+        width: 46px;
+        height: 46px;
+        top: 20px;
+        right: 20px;
+        padding: 10px 18px;
+        border: none;
+
+        &::before {
+            font-size: 10px;
+            display: block;
+            color: #FFF;
+            font-weight: 800;
+            content: "\f11d";
+            font-family: "icons";
+        }
+
+        &:hover {
+            background-color: $blue-on;
+        }
+    }
+
+    &__content {
+        background-color: #fff;
+        padding: 60px 60px 20px 60px;
+
+        &--confirm {
+            p {
+                text-align: center;
+
+                &:last-child {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    &__buttons {
+        overflow: auto;
+        margin-top: 20px;
+
+        &--left {
+            float: left;
+        }
+
+        &--right {
+            float: right;
+            text-align: right;
+        }
+
+        &--centre {
+            text-align: center;
+        }
+
+
+        button.cancel {
+            @include button-small($copy-dark, $grey-dark, $grey-light);
+            margin-right: 10px;
+        }
+
+        button.ok {
+            @include button-small($white, $pink, $pink-on);
+            margin-left: 10px;
+        }
+
+        button {
+            display: inline;
+        }
+    }
+}

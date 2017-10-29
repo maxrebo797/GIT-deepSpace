@@ -1,0 +1,63 @@
+/** @package bcna-frontend 
+ *	contact list module
+ */
+
+div.contact-list {
+	@include module-spacing;
+	
+	h2 {
+		@include module-heading;
+	}
+	
+	ul {
+		@include reset-list;
+		@include font(16px, false, $title-font);
+		color: $copy-med;
+		
+		li {
+			position: relative;
+			padding: 12px;
+			padding-left: 55px;
+			border: 1px solid $border;
+			border-top: 0;
+			
+			&:after {
+				@extend .icon;
+				position: absolute;
+				top: 12px;
+				left: 16px;
+				font-size: 24px;
+			}
+			
+			&.contact:after {
+				@include icon(user, false, false);
+			}
+			
+			&.email:after {
+				@include icon(mail, false, false);
+			}
+			
+			&.phone:after {
+				@include icon(phone, false, false);
+			}
+			
+			&.website:after {
+				@include icon(computer, 28px, false);
+				margin-left: -2px;
+			}
+		}
+
+        &:last-child {
+            margin-top: 10px;
+            border-top: 1px solid $border;
+        }
+	}
+	
+	strong {
+		font-weight: $weight-bold;
+	}
+	
+	a {
+		color: $pink;
+	}
+}

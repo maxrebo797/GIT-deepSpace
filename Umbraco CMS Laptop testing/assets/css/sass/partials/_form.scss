@@ -1,0 +1,774 @@
+/** @package bcna-frontend
+ *	Form styles
+ */
+
+input {
+    /*-webkit-appearance: none;*/
+}
+
+input.text,
+textarea,
+div.select {
+    @include font(14px, 1.4, $base-font);
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 14px;
+    background: #f2ebeb;
+    border: 1px solid #d9d2d2;
+    border-radius: 2px;
+    margin: 0;
+}
+
+textarea {
+    height: auto;
+    min-height: 90px;
+}
+
+.select {
+    position: relative;
+
+    &:after {
+        @include icon(arrow-d, 9px);
+        position: absolute;
+        z-index: 0;
+        top: 60%;
+        right: 12px;
+        margin-top: -9px;
+        color: $copy-light;
+        pointer-events: none;
+    }
+
+    div.value {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 20px;
+    }
+
+    select {
+        @include font(14px, 1.4, $base-font);
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        padding: 10px;
+        border: 0 none;
+        /*@include opacity(0);*/
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        padding-right: 25px;
+
+        &::-ms-expand {
+            display: none;
+        }
+    }
+}
+
+span.checkboxlist,
+span.radiobuttonlist {
+    @include reset-list;
+    margin-top: 5px;
+
+    li {
+        @extend %clearfix;
+        margin-bottom: 15px;
+    }
+
+    label {
+        @include font(15px, false, $title-font);
+        display: inline-block;
+        position: relative;
+        padding-left: 30px;
+
+        strong {
+            font-weight: $weight-book;
+        }
+    }
+}
+
+span.radiobuttonlist label {
+    padding-left: 0;
+
+    input {
+        margin-right: 10px;
+    }
+}
+
+/* Checkboxes */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    @include sprite(checkbox, true);
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0px;
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    @include sprite(checkbox-on, true);
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0px;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked + label:after {
+    color: #999;
+}
+
+[type="checkbox"]:disabled + label {
+    color: #aaa;
+}
+
+
+div.upload {
+    margin-bottom: $grid-spacing;
+
+    div.preview {
+        background: #f2ebeb;
+        border: 1px solid #d9d2d2;
+        position: relative;
+        min-height: 160px;
+
+        &.loaded {
+            min-height: 0;
+        }
+
+        &:before {
+            @include icon(upload, 48px);
+            color: $white;
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            margin-top: -24px;
+            margin-left: -24px;
+        }
+
+        img {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    div.fileinput {
+        position: relative;
+        overflow: hidden;
+        height: 100px;
+
+        &:before {
+            @include button-small($white, $pink, $pink-on);
+            display: block;
+            min-width: 0;
+            text-align: center;
+            margin-top: $grid-spacing;
+            margin-bottom: 10px;
+            content: 'Choose image';
+        }
+
+        div.value {
+            @include font(14px, false, $title-font);
+            display: none;
+        }
+
+        &.placeholder div.value {
+            display: block;
+        }
+
+        input {
+            @include opacity(0);
+            font-size: 999em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+a.help {
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $grey-light;
+    text-decoration: none;
+    float: right;
+
+    &:hover, &:focus {
+        background: $pink;
+        color: $white;
+    }
+
+    &:before {
+        @include font(13px, 1, $title-font);
+        content: '\003F';
+        display: block;
+        text-align: center;
+        padding-top: 6px;
+        margin-bottom: 999em;
+    }
+
+    .contourFieldSet & {
+        margin-top: -27px;
+    }
+}
+
+div.privacy-popup {
+    position: absolute;
+    width: 300px;
+    z-index: 1;
+    right: 31px;
+    top: -50px;
+    color: #000;
+    border: 1px solid #91b0e7;
+    background-color: $white;
+    padding: 25px 20px;
+    display: none;
+    @include font(14px);
+
+    @include arrow(right, center, 17px, $white, #91b0e7, 1px);
+
+    &:before, &:after {
+        z-index: 2;
+        margin-bottom: -22px;
+        top: 55px;
+    }
+
+    &.visible {
+        display: block;
+    }
+
+    strong, small {
+        display: block;
+    }
+
+    strong {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        overflow: hidden;
+
+        input {
+            float: left;
+            margin: 5px 20px 0 0;
+            -webkit-appearance: radio;
+        }
+
+        span {
+            display: block;
+            overflow: hidden;
+        }
+    }
+
+    small {
+        @include font(12px);
+        display: block;
+        margin-top: 10px;
+    }
+
+    div.submit {
+        margin-top: 10px;
+
+        @include mq-notphone {
+            //            @include grid-column(1/2);
+            float: right;
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        @include mq-phone {
+            text-align: left;
+        }
+
+        button.submit {
+            @include button-large($white, $pink, $pink-on, arrow-r);
+            height: 36px;
+            width: 95px;
+            min-width: 0;
+            padding: 10px 21px;
+            margin-top: 0;
+            text-align: left;
+            @include font(14px);
+
+            @include mq-phone {
+                width: 145px;
+            }
+        }
+    }
+}
+
+// Placeholder text
+div.select.placeholder {
+    div.value {
+        color: $placeholder;
+        font-style: italic;
+    }
+}
+
+*::-webkit-input-placeholder {
+    color: $placeholder;
+    font-style: italic;
+}
+
+*:-moz-placeholder {
+    color: $placeholder;
+    font-style: italic;
+}
+
+*::-moz-placeholder {
+    color: $placeholder;
+    font-style: italic;
+}
+
+*:-ms-input-placeholder {
+    color: $placeholder;
+    font-style: italic;
+}
+
+.text--error {
+    color: $alert-on;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.validation {
+
+    .field-validation-valid{
+        display: none;
+    }
+
+    & > span {
+        @include font(14px, 1.33em, $base-font, $weight-light, italic);
+        color: $alert-on;
+        padding-top: 5px;
+        padding-left: 20px;
+        position: relative;
+        overflow: hidden;
+        display: block;
+
+        &:before {
+            @include icon(alert, 18px);
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+    }
+}
+
+#dob-select {
+    height: 50px;
+
+    .select-day {
+        display: inline-block;
+        width: 28%;
+        margin-right: 20px;
+    }
+
+    .select-month {
+        display: inline-block;
+        width: 27%;
+        margin-right: 20px;
+    }
+
+    .select-year {
+        display: inline-block;
+        width: 30%;
+    }
+}
+
+.hp-pet-name, .hp-pet-name > input {
+    height: 0;
+    width: 0;
+    margin-left: 5000px;
+}
+
+.select2-container-multi .select2-choices {
+    @include font(14px, 1.4, $base-font);
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 9px 5px;
+    background: #f2ebeb;
+    border: 1px solid #d9d2d2;
+    border-radius: 2px;
+    margin: 0;
+}
+
+a.button {
+    text-align: center;
+}
+
+// Remove x icon on search fields - http://geektnt.com/how-to-remove-x-from-search-input-field-on-chrome-and-ie.html
+input[type=text]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=text]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+.contourFieldSet {
+    .loading {
+        padding-top: 0px;
+        display: inline-block;
+
+        img {
+            width: 32px;
+            height: 32px;
+            position: relative;
+            top: 10px;
+            right: 10px;
+        }
+    }
+}
+
+
+
+
+.input-clear {
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    background: #999494;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 8px;
+    text-align: center;
+    cursor: pointer;
+
+    &:before {
+        @include icon(modal-close);
+        line-height: 18px;
+        color: #FFF;
+    }
+}
+
+// Contour forms
+.contour {
+    legend {
+        @include heading-medium;
+        @include margins(false, false, 5px);
+        font-weight: bold;
+    }
+
+    label.fieldLabel {
+    }
+}
+
+.contourFieldSet {
+    @extend %clearfix;
+    @include reset-list;
+    @include grid-outer;
+
+    .contourField {
+        
+        margin-bottom: 25px;
+        font-size: 15px;
+        font-size: 0.8823529412rem;
+    }
+
+    .thirds {
+        width: 33.33%;
+    }
+
+    .w10 {
+        width: 10%;
+    }
+
+    .w20 {
+        width: 20%;
+    }
+
+    .w30 {
+        width: 30%;
+    }
+
+    .w40 {
+        width: 40%;
+    }
+
+    .w50 {
+        width: 50%;
+    }
+
+    margin-bottom: -25px;
+
+
+    .contourField > label {
+        @include heading-mini;
+        @include margins(0, 0, 8px, 2px);
+        display: inline-block;
+        font-weight: $weight-book;
+
+        strong {
+            font-weight: $weight-bold;
+            margin-right: 8px;
+        }
+    }
+
+    li.required > label strong:after {
+        content: '\002A';
+        color: $pink;
+        padding-left: 2px;
+    }
+
+    input.text,
+    textarea,
+    div.select {
+    }
+
+    ul.toggle {
+        @include transition(height);
+    }
+
+    h2 {
+        @include heading-medium();
+        @include margins(20px, false, 0);
+        margin-top: 20px;
+        margin-bottom: 0;
+
+        small {
+            font-size: 14px;
+        }
+    }
+
+    li.cancel,
+    li.submit {
+        @include mq-notphone {
+            @include grid-column(1/2);
+        }
+
+        @include mq-phone {
+            text-align: center;
+        }
+    }
+
+    li.cancel {
+        @include mq-notphone {
+            float: left;
+        }
+
+        .cancel {
+            @include button-small($copy-dark, $grey-dark, $grey-light);
+            text-align: center;
+            margin-top: 6px;
+
+            @include mq-phone {
+                width: 145px;
+            }
+        }
+    }
+
+    li.submit {
+        @include mq-notphone {
+            float: right;
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        button.submit {
+            @include button-large($white, $pink, $pink-on, arrow-r);
+
+            @include mq-phone {
+                width: 145px;
+            }
+        }
+    }
+
+    li.location {
+        button {
+            @include button-small($copy-dark, $grey-dark, $grey-light);
+            margin: -40px 20px 0 0;
+            float: right;
+        }
+
+        .settings {
+            margin-top: -25px;
+        }
+    }
+
+    li.relationship {
+        li {
+            width: 50%;
+            display: inline-block;
+        }
+    }
+
+    li.status {
+        margin-bottom: 0px;
+    }
+
+    a.settings {
+        display: block;
+        float: right;
+        margin-top: 8px;
+        width: 13px;
+        height: 13px;
+        overflow: hidden;
+        color: $copy-light;
+        text-decoration: none;
+
+        &:hover, &:focus {
+            color: $pink;
+        }
+
+        &:before {
+            @include icon(config, 13px);
+        }
+    }
+
+    div.settings {
+        position: relative;
+        float: right;
+        margin-top: 8px;
+        width: 13px;
+        height: 13px;
+        color: $copy-light;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover, &:focus {
+            color: $pink;
+
+            .privacy-popup {
+                color: #000;
+            }
+        }
+
+        &:before {
+            @include icon(config, 13px);
+        }
+
+        div.select {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            background: transparent;
+            border: 0;
+
+            &:after,
+            div.value {
+                display: none;
+            }
+        }
+
+        select {
+            @include opacity(0);
+        }
+    }
+
+    a.more {
+        @include font(14px);
+        @extend %text-link;
+        display: block;
+        margin-top: -5px;
+        font-style: italic;
+        text-transform: lowercase;
+        text-decoration: none;
+
+        &:before {
+            content: '\002B';
+            padding-right: 5px;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    p.info {
+        @include font(15px);
+        margin: 25px 0 0 0;
+        padding: 12px 15px;
+        border: 1px solid $border;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.contourPage {
+
+    .legend {
+        @include heading-medium;
+        @include margins(false, false, 5px);
+        font-weight: bold;
+    }
+}
+
+.input-clear {
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    background: #999494;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 8px;
+    text-align: center;
+    cursor: pointer;
+
+    &:before {
+        @include icon(modal-close);
+        line-height: 18px;
+        color: #FFF;
+    }
+}

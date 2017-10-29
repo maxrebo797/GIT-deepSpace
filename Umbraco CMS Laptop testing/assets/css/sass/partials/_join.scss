@@ -1,0 +1,60 @@
+/** @package bcna-frontend 
+ *	Join page styles
+ */
+
+main.join {
+	article {
+		@include mq-large {
+			padding-right: $article-gutter;
+		}
+	}
+	
+	li.username,
+	li.email,
+	li.password {
+		@include mq-notsmall {
+			@include grid-column(1/2);
+		}
+	}
+	
+	li.title {
+		@include mq-notsmall {
+			@include grid-column(1/5);
+		}
+	}
+	
+	li.name {
+		@include mq-notsmall {
+			@include grid-column(2/5);
+		}
+	}
+	
+	li.dob {
+		@include mq-notsmall {
+			@include grid-column(3/6);
+		}
+	}
+	
+	li.experience {
+		@include mq-notsmall {
+			@include grid-column(3/6);
+		}
+	}
+	
+	li.suburb {
+		@include mq-notsmall {
+			@include grid-column(2/4);
+		}
+	}
+	
+	li.state,
+	li.postcode {
+		@include mq-notsmall {
+			@include grid-column(1/4);
+		}
+	}
+	
+	li.submit {
+		margin-top: 30px;
+	}
+}

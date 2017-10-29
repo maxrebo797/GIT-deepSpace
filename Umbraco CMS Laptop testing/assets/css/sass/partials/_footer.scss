@@ -1,0 +1,326 @@
+/** @package bcna-frontend
+ *	Page footer styles
+ */
+
+footer {
+    position: relative;
+    z-index: 1;
+
+    div.wrap {
+        @extend %wrap-inner;
+    }
+
+    ul {
+        @include reset-list;
+    }
+}
+
+footer div.first {
+    @extend %clearfix;
+    background: $grey-light;
+    padding: 35px 0;
+
+    h2 {
+        @include heading-underline;
+        @include margins(false, false, 20px);
+        @include font(30px);
+    }
+
+    h3 {
+        @include font(18px, false, $title-font, $weight-med);
+        margin: 0px 0px 8px 0px;
+        color: $copy-dark;
+    }
+
+    nav {
+        @extend %clearfix;
+        float: left;
+        width: 50%;
+
+        div {
+            float: left;
+            width: 50%;
+        }
+    }
+
+    a {
+        @include font(16px, 1.5, $title-font);
+        @extend %text-link;
+    }
+
+    nav.contact {
+        div.media {
+            padding-left: $grid-spacing/2;
+        }
+
+        a {
+            border-bottom: 1px solid #c6c1c1;
+        }
+
+        a.phone {
+            //@extend %phonelink;
+            margin: 10px 0;
+            border-bottom: 0;
+            color: $pink;
+            font-size: 22px;
+            font-weight: normal;
+
+            &:before {
+                @include icon(phone);
+                display: inline-block;
+                margin-right: 6px;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                color: $pink-on;
+            }
+        }
+
+        div.social-cont {
+            width: 100%;
+            clear: both;
+            margin: 15px 0;
+
+            ul.social {
+                @include clearfix();
+
+                li {
+                    margin-right: 50px;
+                }
+
+                a {
+                    font-size: 0;
+                    text-decoration: none;
+                    border: none;
+
+                    &:before {
+                        color: #c73180;
+                        font-size: 45px;
+                        text-decoration: none;
+                    }
+                }
+
+                @include mq-tablet {
+
+                    li {
+                        float: none;
+                        display: inline-block;
+                        margin: 0 10px;
+                        overflow: hidden;
+                        width: 32px;
+                        height: 32px;
+                    }
+
+                    a:before {
+                        margin: 0;
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+    }
+
+    nav.quicklinks {
+        padding-left: $grid-spacing/2;
+
+        .links {
+            width: 100%;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 4px;
+            width: 48%;
+            float: left;
+
+            &:after {
+                @include icon(arrow-r, 10px);
+                color: $pink;
+                position: absolute;
+                top: 10px;
+                left: 0;
+            }
+        }
+    }
+
+
+    @include mq-tablet {
+        nav {
+            div {
+                float: none;
+                width: auto;
+
+                &.freecall {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        nav.quicklinks {
+            width: 60%;
+        }
+
+        nav.contact {
+            width: 40%;
+
+            div.media {
+                padding-left: 0px;
+            }
+        }
+    }
+
+    @include mq-phone {
+        nav.quicklinks {
+            display: none;
+        }
+
+        nav.contact {
+            width: 100%;
+        }
+    }
+}
+
+footer div.second {
+    @include font(14px, false, $title-font, $weight-light);
+    padding: 29px 0;
+    background: $pink;
+    border-top: 5px solid #c73180;
+
+    @include mq-phone {
+        padding: $grid-spacing 0;
+    }
+
+    div.wrap {
+        @extend %clearfix;
+
+        @include mq-tablet {
+            text-align: center;
+        }
+    }
+
+    ul.languages {
+
+
+        li {
+            display: inline-block;
+            margin-right: 40px;
+            color: $white;
+            font-size: 16px;
+
+            @include mq-tablet {
+                margin-right: 10px;
+            }
+
+            
+        }
+    }
+}
+
+footer div.third {
+    @include font(14px, false, $title-font, $weight-light);
+    padding: 15px 0px;
+    background: $blue;
+    color: $white;
+    clear: both;
+
+    div.wrap {
+        @extend %clearfix;
+    }
+
+    p {
+        margin: 0px;
+    }
+
+    p.copyright {
+        float: left;
+        font-weight: $weight-med;
+
+        @include mq-phone {
+            float: none;
+            text-align: center;
+        }
+    }
+
+    div.copyright {
+        display: inline-block;
+        width: 33%;
+
+        @include mq-tablet {
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+    }
+
+    div.legal-cont {
+        text-align: center;
+        display: inline-block;
+        width: 33%;
+
+        ul {
+            li {
+                display: inline-block;
+
+                &:first-of-type::after {
+                    content: ' | ';
+                }
+            }
+        }
+
+        @include mq-tablet {
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+    }
+
+    div.flags {
+        display: inline-block;
+       
+        text-align: center;
+        padding-left: 10px;
+       
+        @include mq-tablet {
+            display: block;
+           
+        }
+
+        @include mq-phone {
+            display: block;
+        }
+
+
+        ul {
+            display: inline-block;
+            list-style-type: none;
+           
+            li {
+                display: inline-block;
+                //width: 30px;
+
+                img {
+                    
+                    position: relative;
+                    display: inline;
+                    vertical-align: middle;
+                   
+                }
+            }
+        }
+    }
+
+    p.agency {
+        float: right;
+
+        @include mq-phone {
+            float: none;
+            text-align: center;
+        }
+    }
+
+    a {
+        color: $white;
+    }
+}

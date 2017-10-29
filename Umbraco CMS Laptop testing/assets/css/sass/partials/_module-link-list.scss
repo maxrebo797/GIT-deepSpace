@@ -1,0 +1,91 @@
+/** @package bcna-frontend
+ *  Simple link list module
+ *  Used for linked documents, categories, archives, etc
+ *  Links may be given "link" and "document" classes, which will display an icon when in the main <article> (not displayed in <aside>)
+ */
+
+div.link-list {
+    @include module-spacing;
+
+    h2 {
+        @include module-heading;
+    }
+
+    ul {
+        @include reset-list;
+        @include font(16px, false, $title-font);
+        color: $copy-med;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        padding: 12px 12px;
+        padding-right: 20px;
+        border: 1px solid $border;
+        border-top: 0;
+
+        // Right arrow
+        &:after {
+            @include icon(arrow-r, 10px);
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            color: $copy-light;
+        }
+
+        &:hover, &:focus {
+            color: $white;
+            background: $pink;
+            border-color: $pink;
+
+            &:after {
+                color: inherit;
+            }
+        }
+
+        // Display icons when located in main content column
+        article & {
+            &.link,
+            &.document {
+                padding-left: 50px;
+
+                &:before {
+                    position: absolute;
+                    top: 12px;
+                    left: 15px;
+                }
+            }
+
+            &.link:before {
+                @include icon(link, 24px);
+            }
+
+            &.document:before {
+                @include icon(document, 24px);
+            }
+        }
+    }
+}
+
+div.link-list.module.tell-friend {
+    label {
+        padding: 10px 0;
+        display: block;
+    }
+
+    .text {
+        margin-bottom: 10px;
+    }
+
+    .recaptcha {
+        margin-bottom: 10px;
+    }
+
+    .submit {
+        @include button-small($white, $pink, $pink-on, arrow-r);
+        float: right;
+    }
+}

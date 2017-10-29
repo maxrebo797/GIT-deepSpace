@@ -1,0 +1,44 @@
+<span class="modal__close-button" ng-click="$dismiss()"></span>
+<div class="modal__content">
+    <div class="modal__content-header">
+        <h1>New message</h1>
+    </div>
+    <div class="modal__content-body" ng-hide="responseMessage">
+        <div>
+            <ul class="form">
+                <li class="required">
+                    <label for="to"><strong>To:</strong></label>
+                    <ui-select multiple
+                            ng-model="$parent.$parent.recipients"
+                            theme="select2"
+                            ng-disabled="$loading"
+                            reset-search-input="true"
+                            style="width: 100%;"
+                            ng-if="!defaultRecipients">
+                        <ui-select-match>{{$item.secondaryText}}</ui-select-match>
+                        <ui-select-choices repeat="user in usersList"
+                                           refresh="refreshUsers($select.search)"
+                                           refresh-delay="2">
+                            <div ng-bind-html="user.secondaryText"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <input type="text" class="text" value="{{defaultRecipients}}" disabled ng-if="defaultRecipients" />
+                </li>
+                <li class="required">
+                    <label for="subject"><strong>Subject:</strong></label>
+                    <input id="subject" type="text" class="text" ng-model="subject" required ng-disabled="$loading" />
+                </li>
+                <li class="required">
+                    <label for="message"><strong>Message:</strong></label>
+                    <textarea id="message" rows="5" ng-model="body" required ng-disabled="$loading"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="modal__buttons">
+            <div class="modal__buttons--right">
+                <button class="pink" ng-click="submit(body)" ng-disabled="$loading">Send</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal__content-body" ng-show="responseMessage" ng-bind="responseMessage"></div>
+</div>

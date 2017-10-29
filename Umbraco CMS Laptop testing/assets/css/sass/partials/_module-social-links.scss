@@ -1,0 +1,71 @@
+/** @package bcna-frontend
+ *	Social links module
+ */
+
+ul.social {
+	@include reset-list;
+	@extend %clearfix;
+
+    aside  & {
+        margin-bottom: 30px;
+    }
+
+	li {
+		float: left;
+		margin-right: 12px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+		text-decoration: none;
+		color: $blue;
+
+        span {
+            /*display: none;*/
+        }
+
+		&:before {
+			@extend .icon;
+			font-size: 32px;
+		}
+
+		&:hover, &:focus {
+			color: $blue-on;
+		}
+	}
+
+	a.facebook:before {
+		@include icon(facebook, false, false);
+	}
+
+	a.twitter:before {
+		@include icon(twitter, false, false);
+	}
+
+	a.youtube:before {
+		@include icon(youtube, false, false);
+	}
+
+	a.print:before {
+		@include icon(print, false, false);
+	}
+
+	a.share:before {
+		@include icon(share, false, false);
+	}
+
+	// Sharethis spans
+	span.stButton {
+		@include opacity(0);
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		margin: 0;
+	}
+}

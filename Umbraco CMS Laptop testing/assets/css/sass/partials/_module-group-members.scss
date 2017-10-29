@@ -1,0 +1,32 @@
+/** @package bcna-frontend
+ *  Styles for group memberships page
+ */
+
+
+.members-search {
+    background: $grey-dark;
+    padding: 15px;
+    position: relative;
+
+    >div {
+        position: relative;
+        margin-right: 167px;
+    }
+
+    input[type='text'] {
+        background: #FFF;
+        width: 100%;
+        border: none;
+    }
+}
+
+.members-search-submit {
+    @include button-large($copy-med, $white, $pink, search);
+    &:hover {
+        color: #FFF;
+    }
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    margin-top: 0px;
+}

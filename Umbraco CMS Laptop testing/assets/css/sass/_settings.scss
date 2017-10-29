@@ -1,0 +1,119 @@
+/** @package bcna-frontend
+ */
+
+$default-transition-duration: 0.2s;
+
+// Typography
+$base-font: 'Lato', sans-serif;
+$base-font-size: 17px;
+$base-line-height: 1.6;
+$title-font: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+
+$weight-light: 300;
+$weight-book:  400;
+$weight-med:   500;
+$weight-bold:  600;
+
+// Dimensions
+$outer:  1190px;
+$inner:  960px;
+$header: 212px;
+$header-medium: 190px;
+$header-small:  160px;
+$article-width:   percentage(715px / $inner);
+$aside-width:     percentage(225px / $inner);
+$grid-spacing:    20px;
+$content-spacing: 20px;	// Vertical space between content blocks (p, ul etc)
+$module-spacing:  50px;	// Vertical space between moduless
+$article-gutter:  80px;
+
+// Colours
+$copy-dark:   #333333;
+$copy-med:    #666666;
+$copy-light:  #999999;
+$pink:        #e64097;
+$pink-dark:   #c73380;
+$pink-on:     #ff57af;
+$pink-light:  #ffedf6;
+$blue:        #01385e;
+$blue-on:     #014b80;
+$blue-link:   #2193d5;
+$confirm:     #bbda56;
+$confirm-on:  #d2f462;
+$alert:       #e14e4e;
+$alert-on:    #f85f5f;
+$grey-light:  #f2ebeb;
+$grey-dark:   #e6dfdf;
+$white:       #ffffff;
+$border:      #dedede;
+$soft-peach:  #F3EAEB;
+$placeholder: $copy-med;
+$text-highlight: #bbe3fa;
+
+// Breakpoints
+$bp-xlarge: 1200px;
+$bp-large:  1000px;
+$bp-medium: 800px;
+$bp-language-hide: 700px;
+$bp-small:  600px;
+
+// Media queries
+@mixin mq-tablet {
+    @media only screen and (max-width: $bp-medium - 1) {
+        @content;
+    }
+}
+
+@mixin mq-phone {
+	@media only screen and (max-width: $bp-small - 1) {
+		@content;
+	}
+}
+
+@mixin mq-notphone {
+	@media only screen and (min-width: $bp-small), print {
+		@content;
+	}
+}
+
+@mixin mq-small {
+	@media only screen and (min-width: $bp-small) and (max-width: $bp-medium - 1) {
+		@content;
+	}
+}
+
+@mixin mq-notsmall {
+	@media screen and (min-width: $bp-medium), print {
+		@content;
+	}
+}
+
+@mixin mq-medium {
+	@media only screen and (min-width: $bp-medium) and (max-width: $bp-large - 1) {
+		@content;
+	}
+}
+
+@mixin mq-large {
+	@media only screen and (min-width: $bp-large) {
+		@content;
+	}
+}
+
+@mixin mq-notlarge {
+	@media only screen and (max-width: $bp-large - 1) {
+		@content;
+	}
+}
+
+@mixin mq-xlarge {
+	@media only screen and (min-width: $bp-xlarge) {
+		@content;
+	}
+}
+
+@mixin mq-notxlarge {
+	@media only screen and (max-width: $bp-xlarge - 1) {
+		@content;
+	}
+}

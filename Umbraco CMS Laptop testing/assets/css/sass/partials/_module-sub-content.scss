@@ -1,0 +1,59 @@
+/** @package bcna-frontend 
+ *	sub content module
+ */
+
+div.sub-content {
+    @include module-spacing;
+    @include grid-list;
+
+    div.border {
+        border-left: 1px solid $border;
+        border-right: 1px solid $border;
+        border-bottom: 1px solid $border;
+
+        &:hover {
+            background-color: $pink;
+            border-left-color: $pink;
+            border-right-color: $pink;
+            border-bottom-color: $pink;
+        }
+    }
+
+    a {
+        display: block;
+        height: 100%;
+        border-top: 5px solid $pink;
+
+        &:hover {
+            color: $white;
+            text-decoration: none;
+
+            h3 {
+                color: $white;
+            }
+        }
+    }
+
+    a:active, a:visited, a:focus, a:link {
+        text-decoration: none;
+    }
+
+    div.content {
+        padding: 10px 20px 15px;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        @include font(16px, 1.3, $title-font, $weight-light);
+    }
+
+    p {
+        @include font(15px);
+        margin: 0.8em 0;
+    }
+}
+
+div.sub-content.macro {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

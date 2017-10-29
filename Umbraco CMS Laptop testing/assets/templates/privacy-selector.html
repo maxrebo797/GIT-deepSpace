@@ -1,0 +1,15 @@
+<div class="settings" ng-click="toggle($event)">
+    <div class="privacy-popup" ng-class="{'visible':$visible}">
+        <strong>{{title}}</strong>
+        <label ng-repeat="o in options">
+            <input type="radio" class="privacy-choice" name="privacy-choices-{{id}}" value="{{o.value}}" ng-model="$parent.value">
+            <span>{{o.displayText}}</span>
+        </label>
+
+        <small>Use this option to select who is allowed to view this information.</small>
+
+        <div class="submit">
+            <button type="button" class="submit privacy-submit" ng-click="toggle($event)">OK</button>
+        </div>
+    </div>
+</div>

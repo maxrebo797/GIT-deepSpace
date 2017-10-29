@@ -1,0 +1,203 @@
+/** @package bcna-frontend 
+ *	Network logged-in nav bar
+ */
+ 
+div.network-nav {
+	@include mq-notlarge {
+		display: none;
+	}
+
+	position: relative;
+	z-index: 1;
+	background: $grey-dark;
+	@include font(16px, 1, $title-font, $weight-med);
+
+	h2 {
+		font-weight: 300;
+		margin: 0 0 15px 8px;
+		color: $blue;
+		@include font(24px, 1, $title-font, $weight-light);
+	}
+
+	ul {
+		@include reset-list;
+	}
+	
+	div.wrap {
+		@extend %wrap-inner;
+		@extend %clearfix;
+		
+		padding: {
+			top: 32px;
+			bottom: 15px;
+		}
+	}
+	
+	a {
+		@extend %text-link;
+		
+		&.active {
+			@include arrow(bottom, center, 15px, $grey-dark);
+			&:after {
+				margin-bottom: -15px;
+			}
+		}
+	}
+	
+	ul.section {
+		@extend %clearfix;
+		
+		@include mq-large {
+			float: left;
+			margin-left: 10px;
+		}
+		
+		@include mq-notlarge {
+			margin-top: -15px;
+		}
+		
+		> li {
+			float: left;
+			position: relative;
+			padding: 0 25px;
+			border-right: 1px solid $copy-med;
+			
+			&:first-child {
+				padding-left: 0;
+				
+				a:before {
+					margin-left: -27px;
+				}
+			}
+			
+			&:last-child {
+				border-right: 0;
+			}
+		}
+	}
+	
+	ul.member {
+		@extend %clearfix;
+		
+		@include mq-large {
+			float: right;
+			margin-right: 10px;
+		}
+		
+		@include mq-notlarge {
+			margin-top: 35px;
+		}
+		
+		> li {
+			float: left;
+			position: relative;
+			padding: 0 12px;
+			
+			&:first-child {
+				padding-left: 0;
+			}
+		}
+		
+		a.post {
+			@include button-large($white, $pink, $pink-on, arrow-r);
+			margin-top: -18px;
+			min-width: 130px;
+		}
+		
+		> li:last-child {
+			padding-right: 70px;
+			
+			div.portrait {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 60px;
+                height: 60px;
+				border-radius: 50%;
+				top: -23px;
+                max-height: 60px;
+			}
+		}
+		
+		span.count {
+			display: block;
+			float: right;
+			background: $pink;
+			color: $white;
+			font-weight: $weight-light;
+			border-radius: 50%;
+			height: 30px;
+			min-width: 30px;
+			text-align: center;
+			padding-top: 8px;
+			margin: -9px 0 -5px 6px;
+		}
+		
+		ul {
+			@include dropdown;
+			margin-top: 0;
+			
+			&.subnav-post {
+				margin-top: -10px;
+			}
+			
+			// Top arrow
+			&:before, &:after {
+				left: 23px;
+			}
+		}
+		
+		li:hover ul {
+			left: auto;
+		}
+	}
+
+
+
+	&.member-nav-mobile {
+		@include mq-large {
+			display: none;
+		}
+
+		@include mq-notlarge {
+			display: block;
+		}
+
+		@include arrow('bottom', 'left', 20px, $grey-dark);
+
+		padding: 20px 15px;
+
+		> div {
+			@include clearfix();
+		}
+
+		form {
+			width: 50%;
+			float: left;
+		}
+
+		a.post {
+			@include button-large($white, $pink, $pink-on, arrow-r);
+			min-width: 130px;
+			float: right;
+		}
+
+        ul {
+            @include dropdown;
+			margin-top: -10px;
+            right: 10px;
+            left: auto;
+            min-width: 200px;
+            top: 70px;
+            display: none;
+
+            &.show {
+                display: block;
+            }
+			
+			&:before, &:after {
+				left: 143px;
+			}
+        }
+	}
+}

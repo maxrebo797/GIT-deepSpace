@@ -1,0 +1,41 @@
+<a href="{{activity.url}}" class="activity-feed__activity-link">
+    <div class="activity-feed__portrait" style="background-image:url({{activity.actorImageUrl}}?50x50)"></div>
+    <p class="activity-feed__details" ng-switch="activity.type">
+        <span ng-switch-when="group_event">
+            <span  class="activity-feed__quote">&lsquo;{{ activity.target }}&rsquo;</span>
+            <span>event created in</span>
+            <span  class="activity-feed__quote">&lsquo;{{ activity.actor }}&rsquo;</span>
+            <span>group</span>
+        </span>
+
+        <span ng-switch-when="group_join">
+            <span class="activity-feed__created_user">{{ activity.actor }}</span>
+            <span>joined the group</span>
+            <span  class="activity-feed__quote">&lsquo;{{ activity.target }}&rsquo;</span>
+        </span>
+
+        <span ng-switch-when="comment">
+            <span class="activity-feed__created_user">{{ activity.actor }}</span>
+            <span>commented on</span>
+            <span  class="activity-feed__quote">&lsquo;{{ activity.target }}&rsquo;</span>
+        </span>
+
+        <span ng-switch-when="recommend">
+            <span class="activity-feed__created_user">{{ activity.actor }}</span>
+            <span>recommended</span>
+            <span  class="activity-feed__quote">&lsquo;{{ activity.target }}&rsquo;</span>
+        </span>
+
+        <span ng-switch-when="group_blog_post">
+            <span class="activity-feed__created_user">{{ activity.actor }}</span>
+            <span>shared a post in</span>
+            <span  class="activity-feed__quote">&lsquo;{{ activity.target }}&rsquo;</span>
+        </span>
+
+        <span ng-switch-when="blog_post">
+            <span class="activity-feed__created_user">{{ activity.actor }}</span>
+            <span>posted</span>
+            <span  class="activity-feed__quote">&lsquo;{{ activity.target }}&rsquo;</span>
+        </span>
+     </p>
+</a>

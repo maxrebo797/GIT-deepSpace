@@ -1,0 +1,121 @@
+/** @package bcna-frontend 
+ *	Search results map view module
+ */
+
+
+div.results-map {
+	@include module-spacing;
+	clear: both;
+
+	@include mq-notphone {
+		height: 600px;
+	}
+	
+	@include mq-phone {
+		height: 300px;
+	}
+
+    img {
+        max-width: none;
+    }
+		
+	div.mapinfo {
+		@extend %clearfix;
+		
+		@include mq-phone {
+			width: 280px;
+			margin-left: -140px;
+		}
+		
+		@include mq-notphone {
+			width: 400px;
+			margin-left: -200px;
+		}
+		
+		div.inner {
+			position: relative;
+			background: $white;
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+			
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 50%;
+				margin-left: -20px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 20px 20px 0 20px;
+				border-color: $white transparent transparent transparent;
+			}
+		}
+		
+		div.image {
+			float: left;
+			width: 120px;
+            height: 120px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top;
+			
+			@include mq-phone {
+				display: none;
+			}
+		}
+		
+		div.details {
+			margin-left: 120px;
+			min-height: 120px;
+			padding: 10px;
+			border-left: 3px solid $pink;
+			
+			@include mq-phone {
+				margin-left: 0;
+				border-left: 0;
+				min-height: 0;
+			}
+		}
+		
+		p.title {
+			@include heading-mini;
+			margin: 0;
+		}
+		
+		p.subtitle {
+			@include font(16px, 1.3, $title-font);
+			margin: 5px 0;
+		}
+
+        p.date, p.time {
+			@include font(13px, 1.3, $title-font);
+            display: inline-block;
+		}
+        p.date {
+            margin: 5px 5px 5px 0;
+        }
+        p.time {
+            margin: 5px 0px 5px 5px;
+        }
+		
+		p.categories {
+			@include font(12px, false, $base-font);
+			margin: 0;
+		}
+	}
+	
+	div.label {
+		@include font(14px, 1, $title-font);
+		font-weight: $weight-bold;
+		text-align: center;
+		color: $pink;
+		width: 16px;
+	}
+}
+.infoBox {
+    > img {
+        width: 14px !important;
+        height: 13px;
+        z-index: 1;
+    }
+}
